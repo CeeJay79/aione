@@ -10,10 +10,10 @@ Edge::Edge(Node *source_, Node*target_){
     target = target_;
 }
 
-Edge::Node* getSource(){
+Node *Edge::getSource(){
     return source;
 }
 
-Edge::Node* getTarget(){
+Node* Edge::getTarget(){
     return target;
 }

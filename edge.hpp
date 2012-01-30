@@ -9,6 +9,9 @@ public:
     Edge();
     Edge(Node *source_, Node*target_);
 
+    Node* getSource();
+    Node* getTarget();
+
 private:
     Node *source;
     Node *target;

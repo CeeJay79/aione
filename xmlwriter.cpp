@@ -14,10 +14,10 @@ using namespace std;
 
 XmlWriter::XmlWriter(const std::string& filename_)
 {
-    filename_.copy(filename);
+    filename = filename_;
 }
 
-XmlWriter::write(OfflineSocialFeeder* graph_){
+void XmlWriter::write(OfflineSocialFeeder* graph_){
 
     /* xml declaration */
     xml_node<>* decl = doc.allocate_node(node_declaration);
@@ -45,31 +45,39 @@ XmlWriter::write(OfflineSocialFeeder* graph_){
 
     for(it = mapping->begin(); it != mapping->end(); it++) {
 
-        SocialNode *node = *(it);
+        SocialNode *node = it->second;
+        stringstream ss2;
+        ss2 << node->getNodeID();
         vector<Edge *>* friends = node->getFriends();
         /* Looping over edges for a particular node */
         int len = friends->size();
 
         for(int i = 0; i<len; i++){
 
-            char s[20];
+            std::stringstream ss1;
+            ss1 << (*friends)[i]->getTarget()->getNodeID();
+
             xml_node<>* ed = doc.allocate_node(node_element,"edge");
-            ed->append_attribute(doc.allocate_attribute("source",));
-            graph->append_node(edge);
+            ed->append_attribute(doc.allocate_attribute("source",ss2.str().c_str()));
+            ed->append_attribute(doc.allocate_attribute("target",ss1.str().c_str()));
+            graph->append_node(ed);
 
         }
     }
 
+    std::string xml_as_string;
+
+    // watch for name collisions here, print() is a very common function name!
+    rapidxml::print(std::back_inserter(xml_as_string), doc);
 
     /* Writing the file */
-    writeFile(str);
+    writeFile(xml_as_string);
 
 }
 
-XmlWrite::writeFile(const string& str){
+void XmlWriter::writeFile(const string& str){
 
-    ofstream myfile;
-    myfile.open(filename);
+    ofstream myfile(filename.c_str());
     myfile << str;
     myfile.close();
 

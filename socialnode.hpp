@@ -16,6 +16,8 @@ public:
 
     std::string toXML();
 
+    std::vector<Edge*>* getFriends();
+
 private:
     std::vector<Edge*> friends;
 };

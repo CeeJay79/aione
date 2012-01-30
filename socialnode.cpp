@@ -19,3 +19,9 @@ std::string SocialNode::toXML(){
     return ss.str();
 
 }
+
+std::vector<Edge*>* SocialNode::getFriends(){
+
+    return &friends;
+
+}
