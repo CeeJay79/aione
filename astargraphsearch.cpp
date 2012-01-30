@@ -35,7 +35,8 @@ void AStarGraphSearch::runSearch()
 
         for (int i=0; i<numberOfSuccessors; i++)
         {
-            double f = heuristic->evaluateHeuristic(nodeSuccessors[i],edgeSuccessors[i]);
+            double f;
+            //f = heuristic->evaluateHeuristic(nodeSuccessors[i],edgeSuccessors[i]);
             if (f < minF)
             {
                 minF = f;
