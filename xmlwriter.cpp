@@ -6,6 +6,7 @@
 #include "socialnode.hpp"
 #include "edge.hpp"
 #include <vector>
+#include <sstream>
 
 using namespace rapidxml;
 using namespace std;
@@ -51,8 +52,10 @@ XmlWriter::write(OfflineSocialFeeder* graph_){
 
         for(int i = 0; i<len; i++){
 
-            xml__
-            graph->append_node(doc.allocate_node());
+            char s[20];
+            xml_node<>* ed = doc.allocate_node(node_element,"edge");
+            ed->append_attribute(doc.allocate_attribute("source",));
+            graph->append_node(edge);
 
         }
     }
