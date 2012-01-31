@@ -3,6 +3,7 @@
 
 #include <string>
 #include <fstream>
+#include <iostream>
 #include "feeder.hpp"
 #include "node.hpp"
 #include "edge.hpp"

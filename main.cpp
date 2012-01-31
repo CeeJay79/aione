@@ -9,8 +9,9 @@ int main(int argc, char *argv[])
 {
     // Declare Variables
 
-    OfflineSocialFeeder snetwork("/home/webaba/Dev/prai1/graph1.xml");
+    OfflineSocialFeeder snetwork("/home/webaba/Dev/aione/graph1.xml");
 
+    snetwork.exportToXml("/home/webaba/Dev/aione/graph2.xml");
 
 
 
