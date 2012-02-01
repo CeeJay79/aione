@@ -33,7 +33,7 @@ Node* OfflineSocialFeeder::getNode(int inNodeID)
     return mapping->at(inNodeID);
 }
 
-void OfflineSocialFeeder::getSuccessors(Node *inCurrentNode, std::vector<Edge *> *inEdgeSuccessors)
+void OfflineSocialFeeder::getSuccessors(Node* inCurrentNode,std::vector<Edge *>& inEdgeSuccessors)
 {
-    *inEdgeSuccessors = *(((SocialNode*)inCurrentNode)->getFriends());
+    inEdgeSuccessors = *(((SocialNode*)inCurrentNode)->getFriends());
 }

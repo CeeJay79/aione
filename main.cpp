@@ -8,19 +8,19 @@
 int main(int argc, char *argv[])
 {
     // Declare Variables
-    OfflineSocialFeeder feeder("graph1.xml");
-    AStarGraphSearch search(&feeder);
+//    OfflineSocialFeeder feeder("graph1.xml");
+//    AStarGraphSearch search(&feeder);
 
     // Initialize Uninitialized Variables
-    search.initInitNode(1);
-    search.initGoalNode(10);
-    search.initHeuristic();
+//    search.initInitNode(1);
+//    search.initGoalNode(10);
+//    search.initHeuristic();
 
     // Run the algorithm
-    search.runSearch();
+//    search.runSearch();
 
     // Save result in file
-    feeder.exportToXml("graph2.xml");
+//    feeder.exportToXml("graph2.xml");
 
     // GUI Display variables
 #if GUI_DISPLAY == 1

@@ -7,6 +7,12 @@
 #include "node.hpp"
 #include "edge.hpp"
 
+struct
+{
+    std::vector <Node*>  nodes;
+    std::vector <double> costs;
+} frontier;
+
 class Search
 {
 public:
@@ -36,7 +42,6 @@ protected:
     Heuristic* heuristic;
     int numberOfNodesInFrontier;
     int numberOfNodesInExploredSet;
-    std::vector <Node*> frontier;
     std::vector <Node*> exploredSet;
 };
 

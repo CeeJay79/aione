@@ -6,6 +6,7 @@ AStarGraphSearch::AStarGraphSearch(Feeder* inFeeder) : Search(inFeeder)
 
 void AStarGraphSearch::initHeuristic()
 {
+
 }
 
 void AStarGraphSearch::runSearch()
@@ -14,7 +15,8 @@ void AStarGraphSearch::runSearch()
     bool  goalFound;
     Node* currentNode;
     Node* initialNode;
-    std::vector <Edge*>* edgeSuccessors;
+    std::vector <Node*> nodeSuccessors;
+    std::vector <Edge*> edgeSuccessors;
 
     // Initialize Variables
     goalFound = 0;
@@ -36,20 +38,19 @@ void AStarGraphSearch::runSearch()
 
         feeder->getSuccessors(currentNode,edgeSuccessors);
         int numberOfSuccessors = edgeSuccessors.size();
-
-
+        nodeSuccessors.resize(numberOfSuccessors);
 
         int row;
         double minF = 999999999999;
-
         for (int i=0; i<numberOfSuccessors; i++)
         {
             double f;
-            //f = heuristic->evaluateHeuristic(nodeSuccessors[i],edgeSuccessors[i]);
+            nodeSuccessors[i] = (edgeSuccessors[i])->getTarget();
+            f = heuristic->evaluateHeuristic(nodeSuccessors[i],edgeSuccessors[i]);
             if (f < minF)
             {
                 minF = f;
-                row = i;
+                row  = i;
             }
         }
 
@@ -60,7 +61,7 @@ void AStarGraphSearch::runSearch()
                 exploredSet.push_back(nodeSuccessors[i]);
         }
 
-        cNode = frontier[1];
+        currentNode = frontier[1];
     }
 
     // Store Solution

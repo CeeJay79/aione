@@ -31,9 +31,15 @@ void Search::addNodeToExploredSet(Node* inNode)
 
 Node* Search::popFrontier()
 {
-    Node* nodeToReturn = frontier[numberOfNodesInFrontier];
+    if (numberOfNodesInFrontier == 0)
+        return NULL;
+
+    Node* nodeToReturn = frontier.nodes[numberOfNodesInFrontier];
     numberOfNodesInFrontier--;
-    frontier.erase(frontier.end());
+
+    frontier.nodes.erase(frontier.nodes.end());
+    frontier.costs.erase(frontier.costs.end());
+
     return nodeToReturn;
 }
 
@@ -47,5 +53,5 @@ bool Search::goalTest(Node* nodeToBeTested)
 
 std::vector <Node*> Search::getFrontier()
 {
-    return frontier;
+    return frontier.nodes;
 }
