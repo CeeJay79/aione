@@ -14,8 +14,6 @@ public:
     void write(OfflineSocialFeeder* graph_);
 
 private:
-    rapidxml::xml_document<> doc;
-
     std::string filename;
 
     void writeFile(const std::string& filename_);

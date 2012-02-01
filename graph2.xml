@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<graphml xlmns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+	<graph id="SocialGraph" edgedefault="undirected">
+		<node id="&lt;"/>
+		<node id="&lt;"/>
+		<node id="&lt;"/>
+		<node id="&lt;"/>
+		<node id="&lt;"/>
+		<node id="&lt;"/>
+		<node id="&lt;"/>
+		<node id="&lt;"/>
+		<node id="&lt;"/>
+		<node id="&lt;"/>
+		<node id="&lt;?"/>
+		<edge source="&lt;" target="&lt;"/>
+		<edge source="&lt;" target="&lt;"/>
+		<edge source="&lt;" target="&lt;"/>
+		<edge source="&lt;" target="&lt;"/>
+		<edge source="&lt;" target="&lt;"/>
+		<edge source="&lt;" target="&lt;"/>
+		<edge source="&lt;" target="&lt;"/>
+		<edge source="&lt;" target="&lt;"/>
+		<edge source="&lt;" target="&lt;"/>
+		<edge source="&lt;" target="&lt;"/>
+		<edge source="&lt;" target="&lt;"/>
+		<edge source="&lt;" target="&lt;?"/>
+	</graph>
+</graphml>
+

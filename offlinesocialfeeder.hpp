@@ -13,6 +13,11 @@ class OfflineSocialFeeder : public OfflineFeeder
 public:
     OfflineSocialFeeder(const std::string& filename);
 
+    void exportToXml(const std::string& filename);
+
+    std::map<int,SocialNode*>* getMapping();
+
+
 private:
     std::map<int,SocialNode*>* mapping;
 
@@ -20,3 +25,4 @@ private:
 };
 
 #endif // OFFLINESOCIALFEEDER_HPP
+

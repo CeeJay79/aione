@@ -84,7 +84,7 @@ std::map<int,SocialNode*>* XmlReader::parseSocialGraph(){
         cur_node = cur_node->first_node("node");
 
         /* Looping over the nodes */
-        for (cur_node; strcmp(cur_node->name(),"node") == 0; cur_node = cur_node->next_sibling()){
+        for (cur_node;cur_node && strcmp(cur_node->name(),"node") == 0; cur_node = cur_node->next_sibling()){
 
             // String to integer ID
             int idd;
@@ -99,8 +99,10 @@ std::map<int,SocialNode*>* XmlReader::parseSocialGraph(){
 
         }
 
+
+
         /* Looping over the edges */
-        for (cur_node; strcmp(cur_node->name(),"edge") == 0; cur_node = cur_node->next_sibling()){
+        for (cur_node;cur_node &&  strcmp(cur_node->name(),"edge") == 0; cur_node = cur_node->next_sibling()){
 
             // String to integer ID
             int sourceid, targetid;
@@ -111,6 +113,8 @@ std::map<int,SocialNode*>* XmlReader::parseSocialGraph(){
 
             cout << cur_node->name() << " : " << cur_node->first_attribute("source")->value() << " to " << cur_node->first_attribute("target")->value()  << endl;
 
+
+
             // Retrives node point from map
             SocialNode *sourceNode = mapping->at(sourceid);
             SocialNode *targetNode = mapping->at(targetid);
@@ -120,6 +124,9 @@ std::map<int,SocialNode*>* XmlReader::parseSocialGraph(){
 
 
         }
+
+        cout << "test" << endl;
+
 
         return mapping;
 

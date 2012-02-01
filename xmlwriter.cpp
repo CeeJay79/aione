@@ -19,6 +19,8 @@ XmlWriter::XmlWriter(const std::string& filename_)
 
 void XmlWriter::write(OfflineSocialFeeder* graph_){
 
+    rapidxml::xml_document<> doc;
+
     /* xml declaration */
     xml_node<>* decl = doc.allocate_node(node_declaration);
     decl->append_attribute(doc.allocate_attribute("version", "1.0"));
@@ -40,8 +42,22 @@ void XmlWriter::write(OfflineSocialFeeder* graph_){
     graphml->append_node(graph);
 
     /* Looping over nodes and edges */
-    std::map<int,SocialNode*>* mapping;
+    std::map<int,SocialNode*>* mapping = graph_->getMapping();
     std::map<int,SocialNode*>::iterator it;
+
+
+    for(it = mapping->begin(); it != mapping->end(); it++) {
+
+        SocialNode *node = it->second;
+        stringstream ss2;
+        ss2 << node->getNodeID();
+        string s = ss2.str();
+        xml_node<>* nnode = doc.allocate_node(node_element,"node");
+        nnode->append_attribute(doc.allocate_attribute("id",s.c_str()));
+        graph->append_node(nnode);
+
+    }
+
 
     for(it = mapping->begin(); it != mapping->end(); it++) {
 
