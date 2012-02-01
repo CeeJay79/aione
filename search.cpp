@@ -1,7 +1,8 @@
 #include "search.hpp"
 
-Search::Search()
+Search::Search(Feeder* inFeeder)
 {
+    feeder = inFeeder;
     numberOfNodesInFrontier    = 0;
     numberOfNodesInExploredSet = 0;
 }
@@ -22,10 +23,18 @@ void Search::addNodeToFrontier(Node* inNode)
     // Sort and then add to frontier
 }
 
-void Search::addNodeToExploredSet(Node * inNode)
+void Search::addNodeToExploredSet(Node* inNode)
 {
     numberOfNodesInExploredSet++;
     exploredSet.push_back(inNode);
+}
+
+Node* Search::popFrontier()
+{
+    Node* nodeToReturn = frontier[numberOfNodesInFrontier];
+    numberOfNodesInFrontier--;
+    frontier.erase(frontier.end());
+    return nodeToReturn;
 }
 
 bool Search::goalTest(Node* nodeToBeTested)

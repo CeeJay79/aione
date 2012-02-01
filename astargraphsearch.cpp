@@ -1,8 +1,7 @@
 #include "astargraphsearch.hpp"
 
-AStarGraphSearch::AStarGraphSearch(Feeder* inFeeder)
+AStarGraphSearch::AStarGraphSearch(Feeder* inFeeder) : Search(inFeeder)
 {
-    feeder = inFeeder;
 }
 
 void AStarGraphSearch::initHeuristic()
@@ -11,24 +10,34 @@ void AStarGraphSearch::initHeuristic()
 
 void AStarGraphSearch::runSearch()
 {
-    bool  goalFound(0);
-    Node* cNode;
+    // Declare Variables
+    bool  goalFound;
+    Node* currentNode;
+    Node* initialNode;
+    std::vector <Edge*>* edgeSuccessors;
 
-    std::vector <Node*> nodeSuccessors;
-    std::vector <Edge*> edgeSuccessors;
+    // Initialize Variables
+    goalFound = 0;
+    initialNode = feeder->getNode(initNodeID);
+
+    addNodeToFrontier(initialNode);
 
     while (true)
     {
-        bool test = goalTest(cNode);
-        if (test == 1)
+        currentNode = popFrontier();
+
+        goalFound = goalTest(currentNode);
+        if (goalFound)
         {
-            goalFound = 1;
             break;
         }
 
-//        feeder->getSuccessors(cNode,&nodeSuccessors,&edgeSuccessors);
+        addNodeToExploredSet(currentNode);
 
+        feeder->getSuccessors(currentNode,edgeSuccessors);
         int numberOfSuccessors = edgeSuccessors.size();
+
+
 
         int row;
         double minF = 999999999999;

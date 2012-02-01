@@ -10,22 +10,24 @@
 class Search
 {
 public:
-    Search();
+
+    Search(Feeder*);
 
     void initInitNode(int);
     void initGoalNode(int);
     void initHeuristic(Heuristic*);
 
     virtual void runSearch() = 0;
-    void addNodeToFrontier(Node*);
-    void addNodeToExploredSet(Node*);
 
     std::vector<Node*> getFrontier();
     std::vector<Node*> getExploredSet();
 
 protected:
 
-    bool goalTest(Node*);
+    bool  goalTest(Node*);
+    Node* popFrontier();
+    void  addNodeToFrontier(Node*);
+    void  addNodeToExploredSet(Node*);
     virtual void sortPriorityQueue() = 0;
 
     Feeder* feeder;
