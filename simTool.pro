@@ -22,7 +22,8 @@ SOURCES += main.cpp\
     heuristic.cpp \
     offlinesocialfeeder.cpp \
     xmlwriter.cpp \
-    xmlreader.cpp
+    xmlreader.cpp \
+    graphfactory.cpp
 HEADERS += mainwindow.h \
         node.hpp \
         edge.hpp \
@@ -40,6 +41,7 @@ HEADERS += mainwindow.h \
     rapidxml_iterators.hpp \
     rapidxml.hpp \
     xmlreader.hpp \
-    xmlwriter.hpp
+    xmlwriter.hpp \
+    graphfactory.hpp
 FORMS   += mainwindow.ui
 CONFIG  += console
