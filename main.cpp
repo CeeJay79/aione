@@ -8,10 +8,25 @@
 int main(int argc, char *argv[])
 {
     // Declare Variables
+//    OfflineSocialFeeder feeder("graph1.xml");
+//    AStarGraphSearch search(&feeder);
+
 
     OfflineSocialFeeder snetwork("/home/webaba/Dev/aione/graph1.xml");
 
     snetwork.exportToXml("/home/webaba/Dev/aione/graph2.xml");
+
+    // Initialize Uninitialized Variables
+//    search.initInitNode(1);
+//    search.initGoalNode(10);
+//    search.initHeuristic();
+
+    // Run the algorithm
+//    search.runSearch();
+
+    // Save result in file
+//    feeder.exportToXml("graph2.xml");
+
 
     // GUI Display variables
 #if GUI_DISPLAY == 1

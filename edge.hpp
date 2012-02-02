@@ -7,7 +7,7 @@ class Edge
 {
 public:
     Edge();
-    Edge(Node *source_, Node*target_);
+    Edge(Node* source_, Node* target_);
 
     Node* getSource();
     Node* getTarget();

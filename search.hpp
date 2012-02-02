@@ -7,25 +7,34 @@
 #include "node.hpp"
 #include "edge.hpp"
 
+struct nodeAndCost
+{
+    std::vector <Node*>  nodes;
+    std::vector <double> costs;
+};
+
 class Search
 {
 public:
-    Search();
+
+    Search(Feeder*);
 
     void initInitNode(int);
     void initGoalNode(int);
     void initHeuristic(Heuristic*);
 
     virtual void runSearch() = 0;
-    void addNodeToFrontier(Node*);
-    void addNodeToExploredSet(Node*);
 
     std::vector<Node*> getFrontier();
     std::vector<Node*> getExploredSet();
 
 protected:
 
-    bool goalTest(Node*);
+    bool  goalTest(Node*);
+    bool  isNodeInExploredSetOrFrontier(Node*);
+    Node* popFrontier();
+    void  addNodeToFrontier(Node*,double);
+    void  addNodeToExploredSet(Node*,double);
     virtual void sortPriorityQueue() = 0;
 
     Feeder* feeder;
@@ -34,8 +43,8 @@ protected:
     Heuristic* heuristic;
     int numberOfNodesInFrontier;
     int numberOfNodesInExploredSet;
-    std::vector <Node*> frontier;
-    std::vector <Node*> exploredSet;
+    struct nodeAndCost frontier;
+    struct nodeAndCost exploredSet;
 };
 
 #endif // SEARCH_HPP

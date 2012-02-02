@@ -25,7 +25,10 @@ public:
     virtual std::string toXML() = 0;
 
 protected:
+
     int nodeID;
+    int parentNodeID;
+
     NodeType type;
 };
 

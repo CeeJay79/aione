@@ -17,6 +17,8 @@ public:
 
     std::map<int,SocialNode*>* getMapping();
 
+    Node* getNode(int);
+    void  getSuccessors(Node*,std::vector<Edge*>&);
 
 private:
     std::map<int,SocialNode*>* mapping;

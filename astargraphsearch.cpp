@@ -1,57 +1,65 @@
 #include "astargraphsearch.hpp"
 
-AStarGraphSearch::AStarGraphSearch(Feeder* inFeeder)
+AStarGraphSearch::AStarGraphSearch(Feeder* inFeeder) : Search(inFeeder)
 {
-    feeder = inFeeder;
 }
 
 void AStarGraphSearch::initHeuristic()
 {
+
 }
 
 void AStarGraphSearch::runSearch()
 {
-    bool  goalFound(0);
-    Node* cNode;
-
+    // Declare Variables
+    bool  goalFound;
+    Node* currentNode;
+    Node* initialNode;
     std::vector <Node*> nodeSuccessors;
     std::vector <Edge*> edgeSuccessors;
 
+    // Initialize Variables
+    goalFound = 0;
+    initialNode = feeder->getNode(initNodeID);
+
+    addNodeToFrontier(initialNode,0);
+
     while (true)
     {
-        bool test = goalTest(cNode);
-        if (test == 1)
+        currentNode = popFrontier();
+
+        goalFound = goalTest(currentNode);
+        if (goalFound)
         {
-            goalFound = 1;
             break;
         }
 
-//        feeder->getSuccessors(cNode,&nodeSuccessors,&edgeSuccessors);
+        addNodeToExploredSet(currentNode,0);
 
+        feeder->getSuccessors(currentNode,edgeSuccessors);
         int numberOfSuccessors = edgeSuccessors.size();
+        nodeSuccessors.resize(numberOfSuccessors);
 
         int row;
         double minF = 999999999999;
-
         for (int i=0; i<numberOfSuccessors; i++)
         {
             double f;
-            //f = heuristic->evaluateHeuristic(nodeSuccessors[i],edgeSuccessors[i]);
+            nodeSuccessors[i] = (edgeSuccessors[i])->getTarget();
+            f = heuristic->evaluateHeuristic(nodeSuccessors[i],edgeSuccessors[i]);
             if (f < minF)
             {
                 minF = f;
-                row = i;
+                row  = i;
             }
+
+            if (!isNodeInExploredSetOrFrontier(nodeSuccessors[i]))
+                addNodeToFrontier(nodeSuccessors[i],f);
+
+
         }
 
-        addNodeToFrontier(nodeSuccessors[row]);
-        for (int i=0; i<numberOfSuccessors; i++)
-        {
-            if (i != row)
-                exploredSet.push_back(nodeSuccessors[i]);
-        }
-
-        cNode = frontier[1];
+        currentNode = frontier.nodes[numberOfNodesInFrontier];
     }
 
     // Store Solution
