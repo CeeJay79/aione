@@ -13,7 +13,7 @@ public:
     void initHeuristic();
     void runSearch();
 
-    std::vector <Node*> getExploredSet();
+    struct nodeAndCost getExploredSet();
 
 protected:
 

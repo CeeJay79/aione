@@ -46,7 +46,7 @@ void AStarGraphSearch::runSearch()
         {
             double f;
             nodeSuccessors[i] = (edgeSuccessors[i])->getTarget();
-            f = heuristic->evaluateHeuristic(nodeSuccessors[i],edgeSuccessors[i]);
+           // f = heuristic->evaluateHeuristic(nodeSuccessors[i],edgeSuccessors[i]);
             if (f < minF)
             {
                 minF = f;
@@ -69,7 +69,7 @@ void AStarGraphSearch::sortPriorityQueue()
 {
 }
 
-std::vector <Node*> AStarGraphSearch::getExploredSet()
+struct nodeAndCost AStarGraphSearch::getExploredSet()
 {
     return exploredSet;
 }
