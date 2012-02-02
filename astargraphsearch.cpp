@@ -22,7 +22,7 @@ void AStarGraphSearch::runSearch()
     goalFound = 0;
     initialNode = feeder->getNode(initNodeID);
 
-    addNodeToFrontier(initialNode);
+    addNodeToFrontier(initialNode,0);
 
     while (true)
     {
@@ -34,7 +34,7 @@ void AStarGraphSearch::runSearch()
             break;
         }
 
-        addNodeToExploredSet(currentNode);
+        addNodeToExploredSet(currentNode,0);
 
         feeder->getSuccessors(currentNode,edgeSuccessors);
         int numberOfSuccessors = edgeSuccessors.size();
@@ -52,16 +52,14 @@ void AStarGraphSearch::runSearch()
                 minF = f;
                 row  = i;
             }
+
+            if (!isNodeInExploredSetOrFrontier(nodeSuccessors[i]))
+                addNodeToFrontier(nodeSuccessors[i],f);
+
+
         }
 
-        addNodeToFrontier(nodeSuccessors[row]);
-        for (int i=0; i<numberOfSuccessors; i++)
-        {
-            if (i != row)
-                exploredSet.push_back(nodeSuccessors[i]);
-        }
-
-        currentNode = frontier[1];
+        currentNode = frontier.nodes[numberOfNodesInFrontier];
     }
 
     // Store Solution
