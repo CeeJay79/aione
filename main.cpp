@@ -13,9 +13,6 @@ int main(int argc, char *argv[])
 
     snetwork.exportToXml("/home/webaba/Dev/aione/graph2.xml");
 
-
-
-
     // GUI Display variables
 #if GUI_DISPLAY == 1
     QApplication a(argc, argv);
