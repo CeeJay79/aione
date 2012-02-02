@@ -30,8 +30,8 @@ void XmlWriter::write(OfflineSocialFeeder* graph_){
     // root graphml node
     xml_node<>* graphml = doc.allocate_node(node_element, "graphml");
     graphml->append_attribute(doc.allocate_attribute("xlmns", "http://graphml.graphdrawing.org/xmlns"));
-    graphml->append_attribute(doc.allocate_attribute("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance"));
-    graphml->append_attribute(doc.allocate_attribute("xsi:schemaLocation", "http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"));
+    //graphml->append_attribute(doc.allocate_attribute("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance"));
+    //graphml->append_attribute(doc.allocate_attribute("xsi:schemaLocation", "http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"));
 
     doc.append_node(graphml);
 
@@ -50,7 +50,7 @@ void XmlWriter::write(OfflineSocialFeeder* graph_){
 
         SocialNode *node = it->second;
         stringstream ss2;
-        ss2 << node->getNodeID();
+        ss2 << '"' << node->getNodeID() << '"';
         string s = ss2.str();
         xml_node<>* nnode = doc.allocate_node(node_element,"node");
         nnode->append_attribute(doc.allocate_attribute("id",s.c_str()));
