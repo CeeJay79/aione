@@ -1,5 +1,3 @@
 #include "graphfactory.hpp"
+#include <random>
 
-GraphFactory::GraphFactory()
-{
-}

@@ -3,6 +3,12 @@
 
 using namespace std;
 
+OfflineSocialFeeder::OfflineSocialFeeder(std::map<int,SocialNode*>* mapping_){
+
+    mapping = mapping_;
+
+}
+
 OfflineSocialFeeder::OfflineSocialFeeder(const string& filename)
 {
 
@@ -10,7 +16,7 @@ OfflineSocialFeeder::OfflineSocialFeeder(const string& filename)
     XmlReader xmlreader(filename);
     mapping = xmlreader.parseSocialGraph();
 
-    cout << "Test" << endl;
+    cout << "OfflineSOcialFeeder built from XML File : " << filename  << endl;
 
 }
 

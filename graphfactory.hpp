@@ -4,7 +4,9 @@
 class GraphFactory
 {
 public:
-    GraphFactory();
+
+    //static
+
 };
 
 #endif // GRAPHFACTORY_HPP

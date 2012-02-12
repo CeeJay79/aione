@@ -12,6 +12,7 @@ class OfflineSocialFeeder : public OfflineFeeder
 {
 public:
     OfflineSocialFeeder(const std::string& filename);
+    OfflineSocialFeeder(std::map<int,SocialNode*>* mapping);
 
     void exportToXml(const std::string& filename);
 
