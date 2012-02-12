@@ -23,7 +23,7 @@ public:
     void initGoalNode(int);
     void initHeuristic(Heuristic*);
 
-    virtual void runSearch() = 0;
+    virtual Node* runSearch() = 0;
 
     std::vector<Node*> getFrontier();
     std::vector<Node*> getExploredSet();
@@ -31,7 +31,8 @@ public:
 protected:
 
     bool  goalTest(Node*);
-    bool  isNodeInExploredSetOrFrontier(Node*);
+    int   isNodeInFrontier(Node*);
+    int   isNodeInExploredSet(Node*);
     Node* popFrontier();
     void  addNodeToFrontier(Node*,double);
     void  addNodeToExploredSet(Node*,double);

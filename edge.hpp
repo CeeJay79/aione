@@ -9,10 +9,12 @@ public:
     Edge();
     Edge(Node* source_, Node* target_);
 
-    Node* getSource();
-    Node* getTarget();
+    Node*  getSource();
+    Node*  getTarget();
+    double getCost();
 
 private:
+    double cost;
     Node *source;
     Node *target;
 

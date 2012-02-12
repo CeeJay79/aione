@@ -5,7 +5,7 @@
 
 #include "node.hpp"
 #include "edge.hpp"
-#include <vector>;
+#include <vector>
 
 class SocialNode : public Node
 {

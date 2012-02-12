@@ -10,10 +10,9 @@ class AStarGraphSearch : public Search
 public:
     AStarGraphSearch(Feeder*);
 
-    void initHeuristic();
-    void runSearch();
+    Node* runSearch();
 
-    struct nodeAndCost getExploredSet();
+    std::vector <Node*> getExploredSet();
 
 protected:
 

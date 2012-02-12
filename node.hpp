@@ -22,12 +22,25 @@ public:
     void setNodeID(int);
     void setNodeType(NodeType);
 
+    double getCurrentCost();
+    double getHeuristicValue();
+    void   setParent(Node*);
+    void   setCurrentCost(double);
+    void   setHeuristicValue(double);
+
     virtual std::string toXML() = 0;
+
+    // change this shit
+    Node* parentNode;
+    int   nodeID;
 
 protected:
 
-    int nodeID;
-    int parentNodeID;
+
+
+
+    double realCostToGetHere;
+    double heuristicValue;
 
     NodeType type;
 };

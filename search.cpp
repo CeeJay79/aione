@@ -17,6 +17,11 @@ void Search::initGoalNode(int inGoalNodeID)
     goalNodeID = inGoalNodeID;
 }
 
+void Search::initHeuristic(Heuristic* inHeuristic)
+{
+    heuristic = inHeuristic;
+}
+
 void Search::addNodeToFrontier(Node* inNode,double inCost)
 {
     numberOfNodesInFrontier++;
@@ -70,18 +75,41 @@ Node* Search::popFrontier()
     return nodeToReturn;
 }
 
-bool Search::isNodeInExploredSetOrFrontier(Node* inNode)
+int Search::isNodeInFrontier(Node* inNode)
 {
-    for (int i=0;i<numberOfNodesInExploredSet;i++)
-    {
-        if (inNode == exploredSet.nodes[i])
-            return 1;
-    }
+    // 0: Not in frontier
+    // 1: Present in frontier and inNode is more optimal
+    // 2: Present in frontier but frontier is more optimal
 
     for (int i=0;i<numberOfNodesInFrontier;i++)
     {
         if (inNode == frontier.nodes[i])
-            return 1;
+        {
+            if (frontier.nodes[i]->getHeuristicValue() < inNode->getHeuristicValue())
+                return 2;
+            else
+                return 1;
+        }
+    }
+
+    return 0;
+}
+
+int Search::isNodeInExploredSet(Node* inNode)
+{
+    // 0: Not in explored set
+    // 1: Present in explored set and inNode is more optimal
+    // 2: Present in explored set but explored set is not more optimal
+
+    for (int i=0;i<numberOfNodesInExploredSet;i++)
+    {
+        if (inNode == exploredSet.nodes[i])
+        {
+            if (exploredSet.nodes[i]->getHeuristicValue() < inNode->getHeuristicValue())
+                return 2;
+            else
+                return 1;
+        }
     }
 
     return 0;
@@ -97,6 +125,5 @@ bool Search::goalTest(Node* nodeToBeTested)
 
 std::vector <Node*> Search::getFrontier()
 {
-//    return 0;
-//    return frontier.nodes;
+    return frontier.nodes;
 }

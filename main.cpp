@@ -3,29 +3,43 @@
 #include "offlinesocialfeeder.hpp"
 #include "astargraphsearch.hpp"
 
+#include <iostream>
+
 #define GUI_DISPLAY 1
 
 int main(int argc, char *argv[])
 {
     // Declare Variables
-//    OfflineSocialFeeder feeder("graph1.xml");
-//    AStarGraphSearch search(&feeder);
-
-
-    OfflineSocialFeeder snetwork("/home/webaba/Dev/aione/graph1.xml");
-
-    snetwork.exportToXml("/home/webaba/Dev/aione/graph2.xml");
+    Heuristic heur;
+    OfflineSocialFeeder feeder("graph1.xml");
+    AStarGraphSearch search(&feeder);
 
     // Initialize Uninitialized Variables
-//    search.initInitNode(1);
-//    search.initGoalNode(10);
-//    search.initHeuristic();
+    search.initInitNode(1);
+    search.initGoalNode(10);
+    search.initHeuristic(&heur);
 
     // Run the algorithm
-//    search.runSearch();
+//    Node* solution = search.runSearch();
+
+
+//    for (Node* i=solution; i!=NULL; i=i->parentNode)
+//    {
+//        std::cout << i->nodeID << std::endl;
+//    }
+
+
+
 
     // Save result in file
 //    feeder.exportToXml("graph2.xml");
+
+
+
+
+
+
+
 
 
     // GUI Display variables

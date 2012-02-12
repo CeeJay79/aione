@@ -4,12 +4,7 @@ AStarGraphSearch::AStarGraphSearch(Feeder* inFeeder) : Search(inFeeder)
 {
 }
 
-void AStarGraphSearch::initHeuristic()
-{
-
-}
-
-void AStarGraphSearch::runSearch()
+Node* AStarGraphSearch::runSearch()
 {
     // Declare Variables
     bool  goalFound;
@@ -21,6 +16,7 @@ void AStarGraphSearch::runSearch()
     // Initialize Variables
     goalFound = 0;
     initialNode = feeder->getNode(initNodeID);
+    initialNode->setCurrentCost(0);
 
     addNodeToFrontier(initialNode,0);
 
@@ -44,32 +40,47 @@ void AStarGraphSearch::runSearch()
         double minF = 999999999999;
         for (int i=0; i<numberOfSuccessors; i++)
         {
+            double g;
             double f;
-            nodeSuccessors[i] = (edgeSuccessors[i])->getTarget();
-           // f = heuristic->evaluateHeuristic(nodeSuccessors[i],edgeSuccessors[i]);
+
+            nodeSuccessors[i] = edgeSuccessors[i]->getTarget();
+            nodeSuccessors[i]->setParent(currentNode);
+
+            g = currentNode->getCurrentCost() + edgeSuccessors[i]->getCost();
+            f = heuristic->evaluateHeuristic(g,nodeSuccessors[i]);
+            nodeSuccessors[i]->setCurrentCost(g);
+            nodeSuccessors[i]->setHeuristicValue(f);
+
             if (f < minF)
             {
                 minF = f;
                 row  = i;
             }
 
-            if (!isNodeInExploredSetOrFrontier(nodeSuccessors[i]))
-                addNodeToFrontier(nodeSuccessors[i],f);
+            if (isNodeInExploredSet(nodeSuccessors[i]) == 0)
+            {
+                if (isNodeInFrontier(nodeSuccessors[i]) == 0)
+                {
+                    addNodeToFrontier(nodeSuccessors[i],f);
+                }
+                else if (isNodeInFrontier(nodeSuccessors[i]) == 1)
+                {
+                    // replace here
+                }
+            }
 
 
         }
-
-        currentNode = frontier.nodes[numberOfNodesInFrontier];
     }
 
-    // Store Solution
+    return currentNode;
 }
 
 void AStarGraphSearch::sortPriorityQueue()
 {
 }
 
-struct nodeAndCost AStarGraphSearch::getExploredSet()
+std::vector <Node*> AStarGraphSearch::getExploredSet()
 {
-    return exploredSet;
+    return exploredSet.nodes;
 }

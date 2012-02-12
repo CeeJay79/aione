@@ -17,3 +17,8 @@ Node *Edge::getSource(){
 Node* Edge::getTarget(){
     return target;
 }
+
+double Edge::getCost()
+{
+    return cost;
+}
