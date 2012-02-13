@@ -59,13 +59,15 @@ Node* AStarGraphSearch::runSearch()
 
             if (isNodeInExploredSet(nodeSuccessors[i]) == 0)
             {
-                if (isNodeInFrontier(nodeSuccessors[i]) == 0)
+                int jj = isNodeInFrontier(nodeSuccessors[i]);
+                if (jj == 0)
                 {
                     addNodeToFrontier(nodeSuccessors[i],f);
                 }
-                else if (isNodeInFrontier(nodeSuccessors[i]) == 1)
+                else if (jj == -1)
                 {
-                    // replace here
+                    frontier.nodes[jj] = nodeSuccessors[i];
+                    frontier.costs[jj] = nodeSuccessors[i]->getHeuristicValue();
                 }
             }
 

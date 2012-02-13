@@ -77,18 +77,18 @@ Node* Search::popFrontier()
 
 int Search::isNodeInFrontier(Node* inNode)
 {
-    // 0: Not in frontier
-    // 1: Present in frontier and inNode is more optimal
-    // 2: Present in frontier but frontier is more optimal
+    //  0: Not in frontier
+    // -1: Present in frontier and inNode is more optimal
+    // -2: Present in frontier but frontier is more optimal
 
     for (int i=0;i<numberOfNodesInFrontier;i++)
     {
         if (inNode == frontier.nodes[i])
         {
             if (frontier.nodes[i]->getHeuristicValue() < inNode->getHeuristicValue())
-                return 2;
+                return -2;
             else
-                return 1;
+                return i;
         }
     }
 
@@ -97,18 +97,18 @@ int Search::isNodeInFrontier(Node* inNode)
 
 int Search::isNodeInExploredSet(Node* inNode)
 {
-    // 0: Not in explored set
-    // 1: Present in explored set and inNode is more optimal
-    // 2: Present in explored set but explored set is not more optimal
+    //  0: Not in explored set
+    // -1: Present in explored set and inNode is more optimal
+    // -2: Present in explored set but explored set is not more optimal
 
     for (int i=0;i<numberOfNodesInExploredSet;i++)
     {
         if (inNode == exploredSet.nodes[i])
         {
             if (exploredSet.nodes[i]->getHeuristicValue() < inNode->getHeuristicValue())
-                return 2;
+                return -2;
             else
-                return 1;
+                return -1;
         }
     }
 
