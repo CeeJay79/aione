@@ -1,29 +1,884 @@
-<?xml version="1.0" encoding="utf-8"?>
-<graphml xlmns="http://graphml.graphdrawing.org/xmlns">
-	<graph id="SocialGraph" edgedefault="undirected">
-		<node id="&lt;?x"/>
-		<node id="&lt;?x"/>
-		<node id="&lt;?x"/>
-		<node id="&lt;?x"/>
-		<node id="&lt;?x"/>
-		<node id="&lt;?x"/>
-		<node id="&lt;?x"/>
-		<node id="&lt;?x"/>
-		<node id="&lt;?x"/>
-		<node id="&lt;?x"/>
-		<node id="&lt;?xm"/>
-		<edge source="&lt;" target="&lt;"/>
-		<edge source="&lt;" target="&lt;"/>
-		<edge source="&lt;" target="&lt;"/>
-		<edge source="&lt;" target="&lt;"/>
-		<edge source="&lt;" target="&lt;"/>
-		<edge source="&lt;" target="&lt;"/>
-		<edge source="&lt;" target="&lt;"/>
-		<edge source="&lt;" target="&lt;"/>
-		<edge source="&lt;" target="&lt;"/>
-		<edge source="&lt;" target="&lt;"/>
-		<edge source="&lt;" target="&lt;"/>
-		<edge source="&lt;" target="&lt;?"/>
-	</graph>
+<?xml version="1.0" standalone="yes"?>
+
+<!DOCTYPE graphml SYSTEM 'http://graphml.graphdrawing.org/dtds/1.0rc/graphml.dtd'>
+<graphml>
+ <graph edgedefault="undirected">
+  <key id="id" for="node">string</key>
+  <key id="author" for="node">string</key>
+  <key id="dates" for="node">string</key>
+  <key id="componentSize" for="node">int</key>
+  <key id="componentId" for="node">int</key>
+  <key id="componentRank" for="node">int</key>
+  <key id="degree" for="node">int</key>
+  <key id="components" for="node">int</key>
+  <key id="articles" for="edge">string</key>
+  <key id="count" for="edge">int</key>
+  <key id="id" for="edge">string</key>
+  <node id="136">
+   <data key="id">P218971</data>
+   <data key="author">Pak Chung Wong</data>
+   <data key="dates">10-28-1996-10-29-1996, 10-24-1999-10-29-1999, 10-09-2000-10-10-2000, 1996, 1994, 10-29-1995-11-03-1995</data>
+   <data key="componentSize">32</data>
+   <data key="componentId">23</data>
+   <data key="componentRank">3</data>
+   <data key="degree">7</data>
+   <data key="components">23</data>
+  </node>
+  <node id="137">
+   <data key="id">P572890</data>
+   <data key="author">A. H. Crabb</data>
+   <data key="dates">10-28-1996-10-29-1996</data>
+   <data key="componentSize">32</data>
+   <data key="componentId">23</data>
+   <data key="componentRank">3</data>
+   <data key="degree">2</data>
+   <data key="components">23</data>
+  </node>
+  <node id="138">
+   <data key="id">P230677</data>
+   <data key="author">R. D. Bergeron</data>
+   <data key="dates">10-28-1996-10-29-1996, 10-24-1999-10-29-1999, 1996, 1994, 10-29-1995-11-03-1995</data>
+   <data key="componentSize">32</data>
+   <data key="componentId">23</data>
+   <data key="componentRank">3</data>
+   <data key="degree">3</data>
+   <data key="components">23</data>
+  </node>
+  <node id="139">
+   <data key="id">P222451</data>
+   <data key="author">Paul Whitney</data>
+   <data key="dates">10-24-1999-10-29-1999, 2002, 1998</data>
+   <data key="componentSize">32</data>
+   <data key="componentId">23</data>
+   <data key="componentRank">3</data>
+   <data key="degree">6</data>
+   <data key="components">23</data>
+  </node>
+  <node id="140">
+   <data key="id">P140618</data>
+   <data key="author">Jim Thomas</data>
+   <data key="dates">10-24-1999-10-29-1999, 10-09-2000-10-10-2000, 1998</data>
+   <data key="componentSize">32</data>
+   <data key="componentId">23</data>
+   <data key="componentRank">3</data>
+   <data key="degree">7</data>
+   <data key="components">23</data>
+  </node>
+  <node id="141">
+   <data key="id">P573528</data>
+   <data key="author">Wendy Cowley</data>
+   <data key="dates">10-09-2000-10-10-2000</data>
+   <data key="componentSize">32</data>
+   <data key="componentId">23</data>
+   <data key="componentRank">3</data>
+   <data key="degree">4</data>
+   <data key="components">23</data>
+  </node>
+  <node id="142">
+   <data key="id">P107530</data>
+   <data key="author">Harlan Foote</data>
+   <data key="dates">10-09-2000-10-10-2000, 1998</data>
+   <data key="componentSize">32</data>
+   <data key="componentId">23</data>
+   <data key="componentRank">3</data>
+   <data key="degree">7</data>
+   <data key="components">23</data>
+  </node>
+  <node id="143">
+   <data key="id">P317072</data>
+   <data key="author">Elizabeth Jurrus</data>
+   <data key="dates">10-09-2000-10-10-2000, 10-22-2001-10-23-2001</data>
+   <data key="componentSize">32</data>
+   <data key="componentId">23</data>
+   <data key="componentRank">3</data>
+   <data key="degree">8</data>
+   <data key="components">23</data>
+  </node>
+  <node id="244">
+   <data key="id">P243325</data>
+   <data key="author">Richard M. Wilson</data>
+   <data key="dates">10-24-1999-10-29-1999</data>
+   <data key="componentSize">32</data>
+   <data key="componentId">23</data>
+   <data key="componentRank">3</data>
+   <data key="degree">1</data>
+   <data key="components">23</data>
+  </node>
+  <node id="259">
+   <data key="id">P335624</data>
+   <data key="author">Lucy Nowell</data>
+   <data key="dates">10-09-2000-10-10-2000, 10-22-2001-10-23-2001, 10-28-2002-10-29-2002, 1996, 1995, 2002</data>
+   <data key="componentSize">32</data>
+   <data key="componentId">23</data>
+   <data key="componentRank">3</data>
+   <data key="degree">15</data>
+   <data key="components">23</data>
+  </node>
+  <node id="260">
+   <data key="id">P475248</data>
+   <data key="author">Lou Martucci</data>
+   <data key="dates">1998</data>
+   <data key="componentSize">32</data>
+   <data key="componentId">23</data>
+   <data key="componentRank">3</data>
+   <data key="degree">3</data>
+   <data key="components">23</data>
+  </node>
+  <node id="281">
+   <data key="id">P421226</data>
+   <data key="author">Susan Havre</data>
+   <data key="dates">10-09-2000-10-10-2000, 10-22-2001-10-23-2001, 2002</data>
+   <data key="componentSize">32</data>
+   <data key="componentId">23</data>
+   <data key="componentRank">3</data>
+   <data key="degree">6</data>
+   <data key="components">23</data>
+  </node>
+  <node id="282">
+   <data key="id">P29946</data>
+   <data key="author">Beth Hetzler</data>
+   <data key="dates">10-09-2000-10-10-2000, 10-22-2001-10-23-2001, 10-22-2001-10-23-2001, 2002, 1998</data>
+   <data key="componentSize">32</data>
+   <data key="componentId">23</data>
+   <data key="componentRank">3</data>
+   <data key="degree">9</data>
+   <data key="components">23</data>
+  </node>
+  <node id="283">
+   <data key="id">P573229</data>
+   <data key="author">Ken Perrine</data>
+   <data key="dates">10-22-2001-10-23-2001</data>
+   <data key="componentSize">32</data>
+   <data key="componentId">23</data>
+   <data key="componentRank">3</data>
+   <data key="degree">4</data>
+   <data key="components">23</data>
+  </node>
+  <node id="284">
+   <data key="id">P206996</data>
+   <data key="author">Nancy Miller</data>
+   <data key="dates">10-22-2001-10-23-2001, 1998</data>
+   <data key="componentSize">32</data>
+   <data key="componentId">23</data>
+   <data key="componentRank">3</data>
+   <data key="degree">7</data>
+   <data key="components">23</data>
+  </node>
+  <node id="285">
+   <data key="id">P573488</data>
+   <data key="author">Ted Tanasse</data>
+   <data key="dates">10-22-2001-10-23-2001</data>
+   <data key="componentSize">32</data>
+   <data key="componentId">23</data>
+   <data key="componentRank">3</data>
+   <data key="degree">2</data>
+   <data key="components">23</data>
+  </node>
+  <node id="286">
+   <data key="id">P416667</data>
+   <data key="author">Robert Schulman</data>
+   <data key="dates">10-28-2002-10-29-2002</data>
+   <data key="componentSize">32</data>
+   <data key="componentId">23</data>
+   <data key="componentRank">3</data>
+   <data key="degree">2</data>
+   <data key="components">23</data>
+  </node>
+  <node id="287">
+   <data key="id">P65018</data>
+   <data key="author">Deborah Hix</data>
+   <data key="dates">10-28-2002-10-29-2002, 1996, 1995</data>
+   <data key="componentSize">32</data>
+   <data key="componentId">23</data>
+   <data key="componentRank">3</data>
+   <data key="degree">11</data>
+   <data key="components">23</data>
+  </node>
+  <node id="288">
+   <data key="id">P244867</data>
+   <data key="author">Robert K. France</data>
+   <data key="dates">1993, 1996, 1995</data>
+   <data key="componentSize">32</data>
+   <data key="componentId">23</data>
+   <data key="componentRank">3</data>
+   <data key="degree">13</data>
+   <data key="components">23</data>
+  </node>
+  <node id="289">
+   <data key="id">P170457</data>
+   <data key="author">Lenwood S. Heath</data>
+   <data key="dates">1996, 1995</data>
+   <data key="componentSize">32</data>
+   <data key="componentId">23</data>
+   <data key="componentRank">3</data>
+   <data key="degree">10</data>
+   <data key="components">23</data>
+  </node>
+  <node id="290">
+   <data key="id">P75202</data>
+   <data key="author">Edward A. Fox</data>
+   <data key="dates">1993, 1996, 1995</data>
+   <data key="componentSize">32</data>
+   <data key="componentId">23</data>
+   <data key="componentRank">3</data>
+   <data key="degree">13</data>
+   <data key="components">23</data>
+  </node>
+  <node id="291">
+   <data key="id">P300211</data>
+   <data key="author">William C. Wake</data>
+   <data key="dates">1995</data>
+   <data key="componentSize">32</data>
+   <data key="componentId">23</data>
+   <data key="componentRank">3</data>
+   <data key="degree">10</data>
+   <data key="components">23</data>
+  </node>
+  <node id="292">
+   <data key="id">P327358</data>
+   <data key="author">Guillermo A. Averboch</data>
+   <data key="dates">1995</data>
+   <data key="componentSize">32</data>
+   <data key="componentId">23</data>
+   <data key="componentRank">3</data>
+   <data key="degree">10</data>
+   <data key="components">23</data>
+  </node>
+  <node id="293">
+   <data key="id">P327302</data>
+   <data key="author">Eric Labow</data>
+   <data key="dates">1995</data>
+   <data key="componentSize">32</data>
+   <data key="componentId">23</data>
+   <data key="componentRank">3</data>
+   <data key="degree">10</data>
+   <data key="components">23</data>
+  </node>
+  <node id="294">
+   <data key="id">P327722</data>
+   <data key="author">Scott A. Guyer</data>
+   <data key="dates">1995</data>
+   <data key="componentSize">32</data>
+   <data key="componentId">23</data>
+   <data key="componentRank">3</data>
+   <data key="degree">10</data>
+   <data key="components">23</data>
+  </node>
+  <node id="295">
+   <data key="id">P65623</data>
+   <data key="author">Dennis J. Brueni</data>
+   <data key="dates">1995</data>
+   <data key="componentSize">32</data>
+   <data key="componentId">23</data>
+   <data key="componentRank">3</data>
+   <data key="degree">10</data>
+   <data key="components">23</data>
+  </node>
+  <node id="406">
+   <data key="id">P218969</data>
+   <data key="author">Pak Chung Wong</data>
+   <data key="dates">1998</data>
+   <data key="componentSize">32</data>
+   <data key="componentId">23</data>
+   <data key="componentRank">3</data>
+   <data key="degree">3</data>
+   <data key="components">23</data>
+  </node>
+  <node id="407">
+   <data key="id">P192995</data>
+   <data key="author">Mary Brewster</data>
+   <data key="dates">1998</data>
+   <data key="componentSize">32</data>
+   <data key="componentId">23</data>
+   <data key="componentRank">3</data>
+   <data key="degree">3</data>
+   <data key="components">23</data>
+  </node>
+  <node id="473">
+   <data key="id">P79285</data>
+   <data key="author">Eskinder Sahle</data>
+   <data key="dates">1993</data>
+   <data key="componentSize">32</data>
+   <data key="componentId">23</data>
+   <data key="componentRank">3</data>
+   <data key="degree">4</data>
+   <data key="components">23</data>
+  </node>
+  <node id="474">
+   <data key="id">P16174</data>
+   <data key="author">Amjad Daoud</data>
+   <data key="dates">1993</data>
+   <data key="componentSize">32</data>
+   <data key="componentId">23</data>
+   <data key="componentRank">3</data>
+   <data key="degree">4</data>
+   <data key="components">23</data>
+  </node>
+  <node id="475">
+   <data key="id">P28588</data>
+   <data key="author">Ben E. Cline</data>
+   <data key="dates">1993</data>
+   <data key="componentSize">32</data>
+   <data key="componentId">23</data>
+   <data key="componentRank">3</data>
+   <data key="degree">4</data>
+   <data key="components">23</data>
+  </node>
+  <node id="623">
+   <data key="id">P327501</data>
+   <data key="author">Kaushai Dalal</data>
+   <data key="dates">1995</data>
+   <data key="componentSize">32</data>
+   <data key="componentId">23</data>
+   <data key="componentRank">3</data>
+   <data key="degree">10</data>
+   <data key="components">23</data>
+  </node>
+  <edge id="e176" source="136" target="137">
+   <data key="articles">acm857603</data>
+   <data key="count">1</data>
+   <data key="id">e106</data>
+  </edge>
+  <edge id="e177" source="136" target="138">
+   <data key="articles">acm857603, acm245042, acm725689, acm833887</data>
+   <data key="count">4</data>
+   <data key="id">e107</data>
+  </edge>
+  <edge id="e178" source="136" target="139">
+   <data key="articles">acm857670</data>
+   <data key="count">1</data>
+   <data key="id">e222</data>
+  </edge>
+  <edge id="e179" source="136" target="140">
+   <data key="articles">acm857670, acm857693</data>
+   <data key="count">2</data>
+   <data key="id">e223</data>
+  </edge>
+  <edge id="e180" source="136" target="141">
+   <data key="articles">acm857693</data>
+   <data key="count">1</data>
+   <data key="id">e273</data>
+  </edge>
+  <edge id="e181" source="136" target="142">
+   <data key="articles">acm857693</data>
+   <data key="count">1</data>
+   <data key="id">e274</data>
+  </edge>
+  <edge id="e182" source="136" target="143">
+   <data key="articles">acm857693</data>
+   <data key="count">1</data>
+   <data key="id">e276</data>
+  </edge>
+  <edge id="e183" source="137" target="138">
+   <data key="articles">acm857603</data>
+   <data key="count">1</data>
+   <data key="id">e108</data>
+  </edge>
+  <edge id="e328" source="244" target="138">
+   <data key="articles">acm857661</data>
+   <data key="count">1</data>
+   <data key="id">e205</data>
+  </edge>
+  <edge id="e347" source="139" target="140">
+   <data key="articles">acm857670, acm721212</data>
+   <data key="count">2</data>
+   <data key="id">e224</data>
+  </edge>
+  <edge id="e348" source="139" target="259">
+   <data key="articles">acm614509</data>
+   <data key="count">1</data>
+   <data key="id">e1380</data>
+  </edge>
+  <edge id="e349" source="139" target="260">
+   <data key="articles">acm721212</data>
+   <data key="count">1</data>
+   <data key="id">e1541</data>
+  </edge>
+  <edge id="e391" source="281" target="282">
+   <data key="articles">acm857680, acm857725, acm614509</data>
+   <data key="count">3</data>
+   <data key="id">e252</data>
+  </edge>
+  <edge id="e392" source="281" target="259">
+   <data key="articles">acm857680, acm614509</data>
+   <data key="count">2</data>
+   <data key="id">e253</data>
+  </edge>
+  <edge id="e393" source="281" target="283">
+   <data key="articles">acm857725</data>
+   <data key="count">1</data>
+   <data key="id">e362</data>
+  </edge>
+  <edge id="e394" source="281" target="143">
+   <data key="articles">acm857725</data>
+   <data key="count">1</data>
+   <data key="id">e364</data>
+  </edge>
+  <edge id="e395" source="281" target="284">
+   <data key="articles">acm857725</data>
+   <data key="count">1</data>
+   <data key="id">e367</data>
+  </edge>
+  <edge id="e396" source="281" target="139">
+   <data key="articles">acm614509</data>
+   <data key="count">1</data>
+   <data key="id">e1378</data>
+  </edge>
+  <edge id="e397" source="282" target="259">
+   <data key="articles">acm857680, acm857721, acm614509</data>
+   <data key="count">3</data>
+   <data key="id">e254</data>
+  </edge>
+  <edge id="e398" source="282" target="285">
+   <data key="articles">acm857721</data>
+   <data key="count">1</data>
+   <data key="id">e358</data>
+  </edge>
+  <edge id="e399" source="282" target="283">
+   <data key="articles">acm857725</data>
+   <data key="count">1</data>
+   <data key="id">e363</data>
+  </edge>
+  <edge id="e400" source="282" target="143">
+   <data key="articles">acm857725</data>
+   <data key="count">1</data>
+   <data key="id">e365</data>
+  </edge>
+  <edge id="e401" source="282" target="284">
+   <data key="articles">acm857725</data>
+   <data key="count">1</data>
+   <data key="id">e368</data>
+  </edge>
+  <edge id="e402" source="282" target="139">
+   <data key="articles">acm614509, acm721212</data>
+   <data key="count">2</data>
+   <data key="id">e1379</data>
+  </edge>
+  <edge id="e403" source="282" target="260">
+   <data key="articles">acm721212</data>
+   <data key="count">1</data>
+   <data key="id">e1540</data>
+  </edge>
+  <edge id="e404" source="282" target="140">
+   <data key="articles">acm721212</data>
+   <data key="count">1</data>
+   <data key="id">e1542</data>
+  </edge>
+  <edge id="e405" source="259" target="285">
+   <data key="articles">acm857721</data>
+   <data key="count">1</data>
+   <data key="id">e357</data>
+  </edge>
+  <edge id="e406" source="259" target="286">
+   <data key="articles">acm857751</data>
+   <data key="count">1</data>
+   <data key="id">e412</data>
+  </edge>
+  <edge id="e407" source="259" target="287">
+   <data key="articles">acm857751, acm243214, acm376383</data>
+   <data key="count">3</data>
+   <data key="id">e413</data>
+  </edge>
+  <edge id="e408" source="259" target="288">
+   <data key="articles">acm243214, acm376383</data>
+   <data key="count">2</data>
+   <data key="id">e699</data>
+  </edge>
+  <edge id="e409" source="259" target="289">
+   <data key="articles">acm243214, acm376383</data>
+   <data key="count">2</data>
+   <data key="id">e701</data>
+  </edge>
+  <edge id="e410" source="259" target="290">
+   <data key="articles">acm243214, acm376383</data>
+   <data key="count">2</data>
+   <data key="id">e704</data>
+  </edge>
+  <edge id="e411" source="259" target="291">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1154</data>
+  </edge>
+  <edge id="e412" source="259" target="292">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1159</data>
+  </edge>
+  <edge id="e413" source="259" target="293">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1165</data>
+  </edge>
+  <edge id="e414" source="259" target="294">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1172</data>
+  </edge>
+  <edge id="e415" source="259" target="295">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1180</data>
+  </edge>
+  <edge id="e468" source="141" target="142">
+   <data key="articles">acm857693</data>
+   <data key="count">1</data>
+   <data key="id">e275</data>
+  </edge>
+  <edge id="e469" source="141" target="143">
+   <data key="articles">acm857693</data>
+   <data key="count">1</data>
+   <data key="id">e277</data>
+  </edge>
+  <edge id="e470" source="141" target="140">
+   <data key="articles">acm857693</data>
+   <data key="count">1</data>
+   <data key="id">e279</data>
+  </edge>
+  <edge id="e471" source="142" target="143">
+   <data key="articles">acm857693</data>
+   <data key="count">1</data>
+   <data key="id">e278</data>
+  </edge>
+  <edge id="e472" source="142" target="140">
+   <data key="articles">acm857693</data>
+   <data key="count">1</data>
+   <data key="id">e280</data>
+  </edge>
+  <edge id="e473" source="143" target="140">
+   <data key="articles">acm857693</data>
+   <data key="count">1</data>
+   <data key="id">e281</data>
+  </edge>
+  <edge id="e474" source="143" target="284">
+   <data key="articles">acm857725</data>
+   <data key="count">1</data>
+   <data key="id">e370</data>
+  </edge>
+  <edge id="e579" source="283" target="143">
+   <data key="articles">acm857725</data>
+   <data key="count">1</data>
+   <data key="id">e366</data>
+  </edge>
+  <edge id="e580" source="283" target="284">
+   <data key="articles">acm857725</data>
+   <data key="count">1</data>
+   <data key="id">e369</data>
+  </edge>
+  <edge id="e581" source="284" target="406">
+   <data key="articles">acm288247</data>
+   <data key="count">1</data>
+   <data key="id">e904</data>
+  </edge>
+  <edge id="e582" source="284" target="407">
+   <data key="articles">acm288247</data>
+   <data key="count">1</data>
+   <data key="id">e905</data>
+  </edge>
+  <edge id="e583" source="284" target="142">
+   <data key="articles">acm288247</data>
+   <data key="count">1</data>
+   <data key="id">e907</data>
+  </edge>
+  <edge id="e623" source="286" target="287">
+   <data key="articles">acm857751</data>
+   <data key="count">1</data>
+   <data key="id">e414</data>
+  </edge>
+  <edge id="e624" source="287" target="289">
+   <data key="articles">acm243214, acm376383</data>
+   <data key="count">2</data>
+   <data key="id">e703</data>
+  </edge>
+  <edge id="e625" source="287" target="290">
+   <data key="articles">acm243214, acm376383</data>
+   <data key="count">2</data>
+   <data key="id">e705</data>
+  </edge>
+  <edge id="e626" source="287" target="291">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1153</data>
+  </edge>
+  <edge id="e627" source="287" target="292">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1158</data>
+  </edge>
+  <edge id="e628" source="287" target="293">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1164</data>
+  </edge>
+  <edge id="e629" source="287" target="294">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1171</data>
+  </edge>
+  <edge id="e630" source="287" target="295">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1179</data>
+  </edge>
+  <edge id="e675" source="290" target="288">
+   <data key="articles">acm160730, acm243214, acm376383</data>
+   <data key="count">3</data>
+   <data key="id">e464</data>
+  </edge>
+  <edge id="e676" source="290" target="473">
+   <data key="articles">acm160730</data>
+   <data key="count">1</data>
+   <data key="id">e465</data>
+  </edge>
+  <edge id="e677" source="290" target="474">
+   <data key="articles">acm160730</data>
+   <data key="count">1</data>
+   <data key="id">e467</data>
+  </edge>
+  <edge id="e678" source="290" target="475">
+   <data key="articles">acm160730</data>
+   <data key="count">1</data>
+   <data key="id">e470</data>
+  </edge>
+  <edge id="e679" source="290" target="291">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1152</data>
+  </edge>
+  <edge id="e680" source="290" target="292">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1157</data>
+  </edge>
+  <edge id="e681" source="290" target="293">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1163</data>
+  </edge>
+  <edge id="e682" source="290" target="294">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1170</data>
+  </edge>
+  <edge id="e683" source="290" target="295">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1178</data>
+  </edge>
+  <edge id="e684" source="288" target="473">
+   <data key="articles">acm160730</data>
+   <data key="count">1</data>
+   <data key="id">e466</data>
+  </edge>
+  <edge id="e685" source="288" target="474">
+   <data key="articles">acm160730</data>
+   <data key="count">1</data>
+   <data key="id">e468</data>
+  </edge>
+  <edge id="e686" source="288" target="475">
+   <data key="articles">acm160730</data>
+   <data key="count">1</data>
+   <data key="id">e471</data>
+  </edge>
+  <edge id="e687" source="288" target="287">
+   <data key="articles">acm243214, acm376383</data>
+   <data key="count">2</data>
+   <data key="id">e700</data>
+  </edge>
+  <edge id="e688" source="288" target="289">
+   <data key="articles">acm243214, acm376383</data>
+   <data key="count">2</data>
+   <data key="id">e702</data>
+  </edge>
+  <edge id="e689" source="473" target="474">
+   <data key="articles">acm160730</data>
+   <data key="count">1</data>
+   <data key="id">e469</data>
+  </edge>
+  <edge id="e690" source="473" target="475">
+   <data key="articles">acm160730</data>
+   <data key="count">1</data>
+   <data key="id">e472</data>
+  </edge>
+  <edge id="e691" source="474" target="475">
+   <data key="articles">acm160730</data>
+   <data key="count">1</data>
+   <data key="id">e473</data>
+  </edge>
+  <edge id="e907" source="289" target="290">
+   <data key="articles">acm243214, acm376383</data>
+   <data key="count">2</data>
+   <data key="id">e706</data>
+  </edge>
+  <edge id="e908" source="289" target="623">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1146</data>
+  </edge>
+  <edge id="e909" source="289" target="291">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1150</data>
+  </edge>
+  <edge id="e910" source="289" target="292">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1155</data>
+  </edge>
+  <edge id="e911" source="289" target="293">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1161</data>
+  </edge>
+  <edge id="e912" source="289" target="294">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1168</data>
+  </edge>
+  <edge id="e913" source="289" target="295">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1176</data>
+  </edge>
+  <edge id="e1055" source="406" target="407">
+   <data key="articles">acm288247</data>
+   <data key="count">1</data>
+   <data key="id">e906</data>
+  </edge>
+  <edge id="e1056" source="406" target="142">
+   <data key="articles">acm288247</data>
+   <data key="count">1</data>
+   <data key="id">e908</data>
+  </edge>
+  <edge id="e1057" source="407" target="142">
+   <data key="articles">acm288247</data>
+   <data key="count">1</data>
+   <data key="id">e909</data>
+  </edge>
+  <edge id="e1250" source="623" target="290">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1147</data>
+  </edge>
+  <edge id="e1251" source="623" target="287">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1148</data>
+  </edge>
+  <edge id="e1252" source="623" target="259">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1149</data>
+  </edge>
+  <edge id="e1253" source="623" target="291">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1151</data>
+  </edge>
+  <edge id="e1254" source="623" target="292">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1156</data>
+  </edge>
+  <edge id="e1255" source="623" target="293">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1162</data>
+  </edge>
+  <edge id="e1256" source="623" target="294">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1169</data>
+  </edge>
+  <edge id="e1257" source="623" target="295">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1177</data>
+  </edge>
+  <edge id="e1258" source="623" target="288">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1185</data>
+  </edge>
+  <edge id="e1259" source="291" target="292">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1160</data>
+  </edge>
+  <edge id="e1260" source="291" target="293">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1166</data>
+  </edge>
+  <edge id="e1261" source="291" target="294">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1173</data>
+  </edge>
+  <edge id="e1262" source="291" target="295">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1181</data>
+  </edge>
+  <edge id="e1263" source="291" target="288">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1186</data>
+  </edge>
+  <edge id="e1264" source="292" target="293">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1167</data>
+  </edge>
+  <edge id="e1265" source="292" target="294">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1174</data>
+  </edge>
+  <edge id="e1266" source="292" target="295">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1182</data>
+  </edge>
+  <edge id="e1267" source="292" target="288">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1187</data>
+  </edge>
+  <edge id="e1268" source="293" target="294">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1175</data>
+  </edge>
+  <edge id="e1269" source="293" target="295">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1183</data>
+  </edge>
+  <edge id="e1270" source="293" target="288">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1188</data>
+  </edge>
+  <edge id="e1271" source="294" target="295">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1184</data>
+  </edge>
+  <edge id="e1272" source="294" target="288">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1189</data>
+  </edge>
+  <edge id="e1273" source="295" target="288">
+   <data key="articles">acm376383</data>
+   <data key="count">1</data>
+   <data key="id">e1190</data>
+  </edge>
+  <edge id="e1596" source="260" target="140">
+   <data key="articles">acm721212</data>
+   <data key="count">1</data>
+   <data key="id">e1543</data>
+  </edge>
+ </graph>
 </graphml>
 
