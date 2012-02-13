@@ -11,12 +11,12 @@ int main(int argc, char *argv[])
 {
     // Declare Variables
     Heuristic heur;
-    OfflineSocialFeeder feeder("graph1.xml");
+    OfflineSocialFeeder feeder("graph2.xml");
     AStarGraphSearch search(&feeder);
 
     // Initialize Uninitialized Variables
-    search.initInitNode(2);
-    search.initGoalNode(5);
+    search.initInitNode(288);
+    search.initGoalNode(473);
     search.initHeuristic(&heur);
 
            std::cout << "shit" << std::endl;

@@ -77,9 +77,9 @@ std::map<int,SocialNode*>* XmlReader::parseSocialGraph(){
         // we didn't keep track of our previous traversal, so let's start again
         // we can match nodes by name, skipping the xml declaration entirely
         xml_node<>* cur_node = doc.first_node("graphml")->first_node("graph");
-        string graphID = cur_node->first_attribute("id")->value();
+//        string graphID = cur_node->first_attribute("id")->value();
 
-        cout << "Graph ID : " << graphID << endl;
+//        cout << "Graph ID : " << graphID << endl;
 
         cur_node = cur_node->first_node("node");
 

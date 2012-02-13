@@ -1,8 +1,10 @@
 <?xml version="1.0" standalone="yes"?>
 
-<!DOCTYPE graphml SYSTEM 'http://graphml.graphdrawing.org/dtds/1.0rc/graphml.dtd'>
-<graphml>
- <graph edgedefault="undirected">
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
+     http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <graph id="G" edgedefault="undirected">
   <key id="id" for="node">string</key>
   <key id="author" for="node">string</key>
   <key id="dates" for="node">string</key>
