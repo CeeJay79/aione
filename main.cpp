@@ -15,8 +15,8 @@ int main(int argc, char *argv[])
     AStarGraphSearch search(&feeder);
 
     // Initialize Uninitialized Variables
-    search.initInitNode(288);
-    search.initGoalNode(473);
+    search.initInitNode(295);
+    search.initGoalNode(294);
     search.initHeuristic(&heur);
 
            std::cout << "shit" << std::endl;
@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 
 
 
-    for (Node* i=solution; i!=NULL; i=i->parentNode)
+//    for (Node* i=solution; i!=NULL; i=i->parentNode)
     {
         std::cout << i->nodeID << std::endl;
     }

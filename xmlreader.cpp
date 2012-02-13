@@ -91,7 +91,7 @@ std::map<int,SocialNode*>* XmlReader::parseSocialGraph(){
             istringstream ss(cur_node->first_attribute("id")->value());
             ss >> idd;
 
-            cout << cur_node->name() << "  : " << idd << endl;
+           // cout << cur_node->name() << "  : " << idd << endl;
 
             // Create mapping entry between ID and Node CLass Instance
             mapping->insert(pair<int,SocialNode*>(idd,new SocialNode(idd)));
@@ -111,7 +111,7 @@ std::map<int,SocialNode*>* XmlReader::parseSocialGraph(){
             istringstream ss2(cur_node->first_attribute("target")->value());
             ss2 >> targetid;
 
-            cout << cur_node->name() << " : " << cur_node->first_attribute("source")->value() << " to " << cur_node->first_attribute("target")->value()  << endl;
+           // cout << cur_node->name() << " : " << cur_node->first_attribute("source")->value() << " to " << cur_node->first_attribute("target")->value()  << endl;
 
 
 
@@ -125,7 +125,7 @@ std::map<int,SocialNode*>* XmlReader::parseSocialGraph(){
 
         }
 
-        cout << "test" << endl;
+        cout << "XML import completed" << endl;
 
 
         return mapping;
