@@ -37,21 +37,31 @@ void Search::addNodeToFrontier(Node* inNode,double inCost)
     std::vector <double>::iterator posCost;
     posNode = frontier.nodes.begin();
     posCost = frontier.costs.begin();
-    bool mostExpensive(1);
+    bool leastExpensive(1);
+
     for (int i=0;i<numberOfNodesInFrontier;i++)
     {
-        if (inCost < frontier.costs[i])
+        if (inCost > frontier.costs[i])
         {
-            mostExpensive = 0;
-            frontier.nodes.insert(posNode + i + 1,inNode);
-            frontier.costs.insert(posCost + i + 1,inCost);
+            leastExpensive = 0;
+            frontier.nodes.insert(posNode + i,inNode);
+            frontier.costs.insert(posCost + i,inCost);
+            break;
         }
     }
+
+    if (leastExpensive)
+    {
+        frontier.nodes.push_back(inNode);
+        frontier.costs.push_back(inCost);
+    }
+    /*
     if (mostExpensive)
     {
         frontier.nodes.insert(posNode,inNode);
         frontier.costs.insert(posCost,inCost);
     }
+    */
 }
 
 void Search::addNodeToExploredSet(Node* inNode,double inCost)
@@ -66,11 +76,11 @@ Node* Search::popFrontier()
     if (numberOfNodesInFrontier == 0)
         return NULL;
 
-    Node* nodeToReturn = frontier.nodes[numberOfNodesInFrontier];
+    Node* nodeToReturn = frontier.nodes[numberOfNodesInFrontier-1];
     numberOfNodesInFrontier--;
 
-    frontier.nodes.erase(frontier.nodes.end());
-    frontier.costs.erase(frontier.costs.end());
+    frontier.nodes.erase(frontier.nodes.end()-1);
+    frontier.costs.erase(frontier.costs.end()-1);
 
     return nodeToReturn;
 }

@@ -32,7 +32,7 @@ Node* AStarGraphSearch::runSearch()
 
         addNodeToExploredSet(currentNode,0);
 
-        feeder->getSuccessors(currentNode,edgeSuccessors);
+        feeder->getSuccessors(currentNode,&edgeSuccessors);
         int numberOfSuccessors = edgeSuccessors.size();
         nodeSuccessors.resize(numberOfSuccessors);
 

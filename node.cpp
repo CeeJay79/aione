@@ -9,6 +9,8 @@ Node::Node()
 Node::Node(int inNodeID)
 {
     nodeID = inNodeID;
+    parentNode = NULL;
+    realCostToGetHere = 0;
 }
 
 int Node::getNodeID()
