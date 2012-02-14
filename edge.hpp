@@ -12,6 +12,7 @@ public:
     Node*  getSource();
     Node*  getTarget();
     double getCost();
+    void setCost(double cost_);
 
 private:
     double cost;

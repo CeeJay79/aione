@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 
 
 
-//    for (Node* i=solution; i!=NULL; i=i->parentNode)
+    for (Node* i=solution; i!=NULL; i=i->parentNode)
     {
         std::cout << i->nodeID << std::endl;
     }
