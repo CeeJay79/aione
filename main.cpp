@@ -14,6 +14,8 @@ int main(int argc, char *argv[])
     OfflineSocialFeeder feeder("graph2.xml");
     AStarGraphSearch search(&feeder);
 
+    feeder.exportToXml("graphexport.xml");
+
     // Initialize Uninitialized Variables
     search.initInitNode(295);
     search.initGoalNode(294);
@@ -26,10 +28,10 @@ int main(int argc, char *argv[])
 
 
 
-    for (Node* i=solution; i!=NULL; i=i->parentNode)
-    {
-        std::cout << i->nodeID << std::endl;
-    }
+//    for (Node* i=solution; i!=NULL; i=i->parentNode)
+//    {
+//        std::cout << i->nodeID << std::endl;
+//    }
 
 
 

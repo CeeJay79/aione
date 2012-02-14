@@ -99,8 +99,6 @@ std::map<int,SocialNode*>* XmlReader::parseSocialGraph(){
 
         }
 
-
-
         /* Looping over the edges */
         for (cur_node;cur_node &&  strcmp(cur_node->name(),"edge") == 0; cur_node = cur_node->next_sibling()){
 
