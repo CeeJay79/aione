@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     feeder.exportToXml("graphexport.xml");
 
     // Initialize Uninitialized Variables
-    search.initInitNode(295);
+    search.initInitNode(292);
     search.initGoalNode(294);
     search.initHeuristic(&heur);
 

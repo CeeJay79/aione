@@ -117,9 +117,12 @@ std::map<int,SocialNode*>* XmlReader::parseSocialGraph(){
             SocialNode *sourceNode = mapping->at(sourceid);
             SocialNode *targetNode = mapping->at(targetid);
             /* Adds friend to friendlist */
-            Edge *edge = new Edge(sourceNode,targetNode);
+            Edge *edge1 = new Edge(sourceNode,targetNode);
+            Edge *edge2 = new Edge(targetNode,sourceNode);
             edge->setCost(1);
-            sourceNode->addFriend(edge);
+            edge->setCost(2);
+            sourceNode->addFriend(edge1);
+            targetNode->addFriend(edge2);
 
 
 
