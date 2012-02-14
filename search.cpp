@@ -69,6 +69,7 @@ void Search::addNodeToExploredSet(Node* inNode,double inCost)
     numberOfNodesInExploredSet++;
     exploredSet.nodes.push_back(inNode);
     exploredSet.costs.push_back(inCost);
+
 }
 
 Node* Search::popFrontier()

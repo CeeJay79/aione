@@ -18,6 +18,7 @@ public:
     Node();
     Node(int id_);
 
+
     int  getNodeID();
     void setNodeID(int);
     void setNodeType(NodeType);
@@ -27,6 +28,9 @@ public:
     void   setParent(Node*);
     void   setCurrentCost(double);
     void   setHeuristicValue(double);
+
+    bool isExplored();
+    void setExplored(bool a);
 
     virtual std::string toXML() = 0;
 
@@ -41,6 +45,7 @@ protected:
 
     double realCostToGetHere;
     double heuristicValue;
+    bool explored;
 
     NodeType type;
 };

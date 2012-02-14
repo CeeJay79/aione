@@ -22,7 +22,10 @@ Node* AStarGraphSearch::runSearch()
 
     while (true)
     {
+
         currentNode = popFrontier();
+        currentNode->setExplored(1);
+
 
         goalFound = goalTest(currentNode);
         if (goalFound)

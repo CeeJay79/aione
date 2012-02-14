@@ -13,6 +13,7 @@ public:
     Node*  getTarget();
     double getCost();
     void setCost(double cost_);
+    bool explored;
 
 private:
     double cost;

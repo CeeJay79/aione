@@ -16,7 +16,6 @@ int main(int argc, char *argv[])
     OfflineSocialFeeder feeder("graph2.xml");
     AStarGraphSearch search(&feeder);
 
-    feeder.exportToXml("graphexport.xml");
 
     // Initialize Uninitialized Variables
     search.initInitNode(473);
@@ -36,6 +35,7 @@ int main(int argc, char *argv[])
 
 
 
+    feeder.exportToXml("graphexport.xml");
 
 
     // Save result in file

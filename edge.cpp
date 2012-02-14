@@ -8,6 +8,7 @@ Edge::Edge()
 Edge::Edge(Node *source_, Node*target_){
     source = source_;
     target = target_;
+    explored = 0;
 }
 
 Node *Edge::getSource(){

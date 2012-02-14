@@ -11,11 +11,22 @@ Node::Node(int inNodeID)
     nodeID = inNodeID;
     parentNode = NULL;
     realCostToGetHere = 0;
+    explored = 0;
 }
 
 int Node::getNodeID()
 {
     return nodeID;
+}
+
+bool Node::isExplored(){
+
+    return explored;
+}
+
+void Node::setExplored(bool a){
+
+    explored = a;
 }
 
 void Node::setNodeID(int inID)

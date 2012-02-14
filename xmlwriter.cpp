@@ -56,6 +56,26 @@ void XmlWriter::write(OfflineSocialFeeder* graph_){
     keyg->append_attribute(doc.allocate_attribute("for","node"));
     keyg->append_attribute(doc.allocate_attribute("id","g"));
 
+    // Keys for colors for edges
+    // Keys for color blue
+    xml_node<>* ekeyb = doc.allocate_node(node_element,"key");
+    ekeyb->append_attribute(doc.allocate_attribute("attr.name","b"));
+    ekeyb->append_attribute(doc.allocate_attribute("attr.type","int"));
+    ekeyb->append_attribute(doc.allocate_attribute("for","edge"));
+    ekeyb->append_attribute(doc.allocate_attribute("id","b"));
+    // Keys for color red
+    xml_node<>* ekeyr = doc.allocate_node(node_element,"key");
+    ekeyr->append_attribute(doc.allocate_attribute("attr.name","r"));
+    ekeyr->append_attribute(doc.allocate_attribute("attr.type","int"));
+    ekeyr->append_attribute(doc.allocate_attribute("for","edge"));
+    ekeyr->append_attribute(doc.allocate_attribute("id","r"));
+    // Keys for color green
+    xml_node<>* ekeyg = doc.allocate_node(node_element,"key");
+    ekeyg->append_attribute(doc.allocate_attribute("attr.name","g"));
+    ekeyg->append_attribute(doc.allocate_attribute("attr.type","int"));
+    ekeyg->append_attribute(doc.allocate_attribute("for","edge"));
+    ekeyg->append_attribute(doc.allocate_attribute("id","g"));
+
     // Graph node
     xml_node<>* graph = doc.allocate_node(node_element, "graph");
     graph->append_attribute(doc.allocate_attribute("id","SocialGraph"));
@@ -66,6 +86,10 @@ void XmlWriter::write(OfflineSocialFeeder* graph_){
     graph->append_node(keyb);
     graph->append_node(keyr);
     graph->append_node(keyg);
+    graph->append_node(ekeyb);
+    graph->append_node(ekeyr);
+    graph->append_node(ekeyg);
+
 
     /* Looping over nodes and edges */
     std::map<int,SocialNode*>* mapping = graph_->getMapping();
@@ -82,16 +106,35 @@ void XmlWriter::write(OfflineSocialFeeder* graph_){
         std::cout << buf << std::endl;
         xml_node<>* nnode = doc.allocate_node(node_element,"node");
         nnode->append_attribute(doc.allocate_attribute("id",buf));
-        graph->append_node(nnode);
 
         // Color explored nodes
-//        xml_node<>* color = doc.allocate_node(node_element,"data");
-//        color->append_attribute(doc.allocate_attribute("key","r"));
-//        color->value() = "0";
-//        keyg->append_attribute(doc.allocate_attribute("attr.type","int"));
-//        <data key="r">0</data>
-//         <data key="g">0</data>
-//         <data key="b">255</data>
+        if (node->isExplored()){
+            std::cout << "explored" <<std::endl;
+        xml_node<>* red = doc.allocate_node(node_element,"data","0");
+        red->append_attribute(doc.allocate_attribute("key","r"));
+        xml_node<>* green = doc.allocate_node(node_element,"data","0");
+        green->append_attribute(doc.allocate_attribute("key","g"));
+        xml_node<>* blue = doc.allocate_node(node_element,"data","255");
+        blue->append_attribute(doc.allocate_attribute("key","b"));
+        nnode->append_node(red);
+        nnode->append_node(green);
+        nnode->append_node(blue);
+        }
+
+        else{
+            xml_node<>* red = doc.allocate_node(node_element,"data","220");
+            red->append_attribute(doc.allocate_attribute("key","r"));
+            xml_node<>* green = doc.allocate_node(node_element,"data","220");
+            green->append_attribute(doc.allocate_attribute("key","g"));
+            xml_node<>* blue = doc.allocate_node(node_element,"data","240");
+            blue->append_attribute(doc.allocate_attribute("key","b"));
+            nnode->append_node(red);
+            nnode->append_node(green);
+            nnode->append_node(blue);
+        }
+
+        graph->append_node(nnode);
+
 
     }
 
@@ -109,6 +152,21 @@ void XmlWriter::write(OfflineSocialFeeder* graph_){
             xml_node<>* ed = doc.allocate_node(node_element,"edge");
             ed->append_attribute(doc.allocate_attribute("source",strids.at((*friends)[i]->getSource()->getNodeID())));
             ed->append_attribute(doc.allocate_attribute("target",strids.at((*friends)[i]->getTarget()->getNodeID())));
+
+            if ((*friends)[i]->getSource()->isExplored() && (*friends)[i]->getTarget()->isExplored()){
+                std::cout << "explored" <<std::endl;
+            xml_node<>* red = doc.allocate_node(node_element,"data","0");
+            red->append_attribute(doc.allocate_attribute("key","r"));
+            xml_node<>* green = doc.allocate_node(node_element,"data","0");
+            green->append_attribute(doc.allocate_attribute("key","g"));
+            xml_node<>* blue = doc.allocate_node(node_element,"data","255");
+            blue->append_attribute(doc.allocate_attribute("key","b"));
+            ed->append_node(red);
+            ed->append_node(green);
+            ed->append_node(blue);
+            }
+
+
             graph->append_node(ed);
 
             cout << ed->first_attribute("source")->value() << std::endl;
