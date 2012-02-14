@@ -22,3 +22,8 @@ double Edge::getCost()
 {
     return cost;
 }
+
+void Edge::setCost(double cost_)
+{
+    cost = cost_;
+}
