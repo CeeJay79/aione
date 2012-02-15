@@ -7,35 +7,33 @@
 #include "simulator.hpp"
 
 
-#define GUI_DISPLAY 0
+#define GUI_DISPLAY 1
 
 int main(int argc, char *argv[])
 {
     // Declare Variables
-    Heuristic heur;
-    OfflineSocialFeeder feeder("graph2.xml");
-    AStarGraphSearch search(&feeder);
+//    Heuristic heur;
+//    OfflineSocialFeeder feeder("graph2.xml");
+//    AStarGraphSearch search(&feeder);
 
 
     // Initialize Uninitialized Variables
-    search.initInitNode(473);
-    search.initGoalNode(294);
-    search.initHeuristic(&heur);
+//    search.initInitNode(473);
+//    search.initGoalNode(294);
+//    search.initHeuristic(&heur);
 
     // Run the algorithm
-       Node* solution = search.runSearch();
-    std::cout << (solution->parentNode)->getCurrentCost() << std::endl;
+//       Node* solution = search.runSearch();
+//    std::cout << (solution->parentNode)->getCurrentCost() << std::endl;
 
-
-
-//    for (Node* i=solution; i!=NULL; i=i->parentNode)
+    //    for (Node* i=solution; i!=NULL; i=i->parentNode)
 //    {
 //        std::cout << i->nodeID << std::endl;
 //    }
 
 
 
-    feeder.exportToXml("graphexport.xml");
+//    feeder.exportToXml("graphexport.xml");
 
 
     // Save result in file

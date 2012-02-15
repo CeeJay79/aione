@@ -23,7 +23,9 @@ SOURCES += main.cpp\
     offlinesocialfeeder.cpp \
     xmlwriter.cpp \
     xmlreader.cpp \
-    graphfactory.cpp
+    graphfactory.cpp \
+    geometricobject.cpp \
+    graphicalnode.cpp
 HEADERS += mainwindow.h \
         node.hpp \
         edge.hpp \
@@ -42,6 +44,8 @@ HEADERS += mainwindow.h \
     rapidxml.hpp \
     xmlreader.hpp \
     xmlwriter.hpp \
-    graphfactory.hpp
+    graphfactory.hpp \
+    geometricobject.hpp \
+    graphicalnode.hpp
 FORMS   += mainwindow.ui
 CONFIG  += console
