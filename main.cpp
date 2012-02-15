@@ -47,6 +47,7 @@ int main(int argc, char *argv[])
 //    w.show();
     Simulator x;
     x.show();
+    x.paintGL();
 #endif
 
     // Cleanup and preperation to exit program

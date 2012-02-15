@@ -17,3 +17,12 @@ void GraphicalNode::create()
         glEndList();
     }
 }
+
+void GraphicalNode::draw()
+{
+    glPushMatrix();
+//        glTranslated(0.0,0.0,0.0);
+//        glRotated(0.0,0.0,0.0,0.0);
+        glCallList(mListIndex);
+    glPopMatrix();
+}

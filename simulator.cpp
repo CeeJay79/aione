@@ -5,6 +5,21 @@ Simulator::Simulator(QWidget *parent) :
 {
 }
 
+void Simulator::resizeGL(int width, int height)
+{
+    GLfloat w = (double)width/(double)height;
+    GLfloat h = 1;
+
+    glViewport(0,0,width,height);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    float near_clip = 1.0; float far_clip = 600;
+    glFrustum(-w,w,-h,h,near_clip,far_clip);
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+    glTranslated(0,0,-50);
+}
+
 void Simulator::initializeGL()
 {
     glClearColor(0.0,0.0,0.0,0.0);
@@ -36,27 +51,22 @@ void Simulator::initializeGL()
     glColorMaterial(GL_FRONT, GL_AMBIENT_AND_DIFFUSE);
     glMaterialfv(GL_FRONT, GL_SPECULAR,specular);
     glMateriali(GL_FRONT,GL_SHININESS,128);
-}
 
-void Simulator::resizeGL(int width, int height)
-{
-    GLfloat w = (double)width/(double)height;
-    GLfloat h = 1;
+    // Create Objects
+    GeometricObject* newObj = new GraphicalNode();
+    graphicalObjects.push_back(newObj);
 
-    glViewport(0,0,width,height);
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    float near_clip = 1.0; float far_clip = 600;
-    glFrustum(-w,w,-h,h,near_clip,far_clip);
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-    glTranslated(0,0,-50);
+
 }
 
 void Simulator::paintGL()
 {
-    // Should the depth buffer be cleared as well
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    for (unsigned int i=0; i<graphicalObjects.size(); i++)
+    {
+        graphicalObjects[i]->draw();
+    }
 
     glFlush();
 }

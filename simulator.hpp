@@ -2,6 +2,8 @@
 #define SIMULATOR_HPP
 
 #include <QGLWidget>
+#include "geometricobject.hpp"
+#include "graphicalnode.hpp"
 
 class Simulator : public QGLWidget
 {
@@ -9,14 +11,19 @@ class Simulator : public QGLWidget
 public:
     explicit Simulator(QWidget *parent = 0);
 
-protected:
     void initializeGL();
-    void resizeGL(int width, int height);
+    void resizeGL(int,int);
     void paintGL();
+
+protected:
+
 
 signals:
 
 public slots:
+
+private:
+    std::vector <GeometricObject*> graphicalObjects;
 
 };
 

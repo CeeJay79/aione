@@ -16,6 +16,8 @@ public:
     virtual ~GeometricObject() = 0;
 
     virtual void create() = 0;
+    virtual void draw() = 0;
+
     int getListIndex();
 
 protected:

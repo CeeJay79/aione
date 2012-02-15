@@ -10,6 +10,7 @@ public:
     GraphicalNode();
 
     void create();
+    void draw();
 
 private:
     double radius;
