@@ -15,6 +15,8 @@ public:
     GeometricObject();
     virtual ~GeometricObject() = 0;
 
+    int getNumberOfObjects();
+
     virtual void create() = 0;
     virtual void draw() = 0;
 

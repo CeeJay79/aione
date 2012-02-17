@@ -12,6 +12,12 @@ public:
     void create();
     void draw();
 
+    void setRadius(double);
+    double getRadius();
+
+protected:
+
+
 private:
     double radius;
 };

@@ -12,6 +12,11 @@ GeometricObject::~GeometricObject()
     numberOfGeometricObjects--;
 }
 
+int GeometricObject::getNumberOfObjects()
+{
+    return numberOfGeometricObjects;
+}
+
 int GeometricObject::getListIndex()
 {
     return mListIndex;

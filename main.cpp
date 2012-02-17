@@ -43,11 +43,9 @@ int main(int argc, char *argv[])
     // GUI Display variables
 #if GUI_DISPLAY == 1
     QApplication a(argc, argv);
-//    MainWindow w;
-//    w.show();
-    Simulator x;
-    x.show();
-    x.paintGL();
+    MainWindow w;
+    w.show();
+
 #endif
 
     // Cleanup and preperation to exit program

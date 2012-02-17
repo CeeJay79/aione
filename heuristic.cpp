@@ -16,4 +16,5 @@ double Heuristic::evaluateHeuristic(double g, Node* inNodePrime)
     h = 0; // use goal node and inNodePrime here
 
     f = g + h;
+    return f;
 }
