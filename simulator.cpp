@@ -3,7 +3,7 @@
 Simulator::Simulator(QWidget *parent) :
     QGLWidget(parent)
 {
-//    timerID = startTimer(10);
+    timerID = startTimer(10);
 }
 
 Simulator::~Simulator()
@@ -27,7 +27,7 @@ void Simulator::resizeGL(int width, int height)
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
-    glTranslated(0.0,0.0,-2.0*10.0/3.0);
+    glTranslated(0.0,0.0,-20.0);
 }
 
 void Simulator::initializeGL()
@@ -63,14 +63,14 @@ void Simulator::initializeGL()
     glMateriali(GL_FRONT,GL_SHININESS,128);
 
     // Create Graphical Nodes
-//    int n = 1;
-//    for (int i=0; i<n; i++)
-//    {
-//        GraphicalNode* gNode = new GraphicalNode();
-//        graphicalObjects.push_back(gNode);
-//        gNode->setRadius(1);
-//        gNode->create();
-//    }
+    int n = 1;
+    for (int i=0; i<n; i++)
+    {
+        GraphicalNode* gNode = new GraphicalNode();
+        graphicalObjects.push_back(gNode);
+        gNode->setRadius(1);
+        gNode->create();
+    }
 
     // Create Graphical Edges
     int j = 1;
@@ -87,6 +87,10 @@ void Simulator::paintGL()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+    glRotatef(xRot/16.0,1.0,0.0,0.0);
+    glRotatef(yRot/16.0,0.0,1.0,0.0);
+    glRotatef(zRot/16.0,0.0,0.0,1.0);
+
     for (unsigned int i=0; i<graphicalObjects.size(); i++)
     {
         graphicalObjects[i]->draw();
@@ -95,7 +99,107 @@ void Simulator::paintGL()
     glFlush();
 }
 
-void Simulator::timerEvent(QTimerEvent* e)
+void Simulator::keyPressEvent(QKeyEvent* event)
+{
+    switch(event->key())
+    {
+    case Qt::Key_H:
+        homeView();
+        break;
+    }
+}
+
+void Simulator::timerEvent(QTimerEvent* event)
 {
     updateGL();
+}
+
+void Simulator::mousePressEvent(QMouseEvent* event)
+{
+    lastPos = event->pos();
+}
+
+void Simulator::mouseMoveEvent(QMouseEvent* event)
+{
+    int dx = event->x() - lastPos.x();
+    int dy = event->y() - lastPos.y();
+
+    if (event->buttons() && Qt::LeftButton)
+    {
+        setXRotation(xRot + 8*dy);
+        setYRotation(yRot + 8*dx);
+    }
+    else if (event->buttons() && Qt::RightButton)
+    {
+        setXRotation(xRot + 8*dy);
+        setZRotation(zRot + 8*dx);
+    }
+
+    lastPos = event->pos();
+}
+
+void Simulator::mouseReleaseEvent(QMouseEvent* e)
+{
+    xRot = 0;
+    yRot = 0;
+    zRot = 0;
+}
+
+void Simulator::setXRotation(int angle)
+{
+    normalizeAngle(angle);
+    if (angle != xRot)
+    {
+        xRot = angle;
+    }
+}
+
+void Simulator::setYRotation(int angle)
+{
+    normalizeAngle(angle);
+    if (angle != yRot)
+    {
+        yRot = angle;
+    }
+}
+
+void Simulator::setZRotation(int angle)
+{
+    normalizeAngle(angle);
+    if (angle != zRot)
+    {
+        zRot = angle;
+    }
+}
+
+void Simulator::normalizeAngle(int& angle)
+{
+    while (angle < 0)
+        angle += 360*16;
+    while (angle > 360*16)
+        angle -= 360*16;
+}
+
+int Simulator::getXRotation()
+{
+    return xRot;
+}
+
+int Simulator::getYRotation()
+{
+    return yRot;
+}
+
+int Simulator::getZRotation()
+{
+    return zRot;
+}
+
+void Simulator::homeView()
+{
+    glLoadIdentity();
+    glTranslated(0.0,0.0,-20.0);
+    xRot = 0;
+    yRot = 0;
+    zRot = 0;
 }

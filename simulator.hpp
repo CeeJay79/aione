@@ -2,6 +2,7 @@
 #define SIMULATOR_HPP
 
 #include <QGLWidget>
+#include <QtGui/QKeyEvent>
 #include <QTimerEvent>
 #include "geometricobject.hpp"
 #include "graphicalnode.hpp"
@@ -16,13 +17,33 @@ public:
     explicit Simulator(QWidget *parent = 0);
     ~Simulator();
 
-protected:
+private:
+
     void initializeGL();
     void resizeGL(int,int);
     void paintGL();
-    void timerEvent(QTimerEvent* e);
 
-private:
+    void timerEvent(QTimerEvent*);
+    void keyPressEvent(QKeyEvent*);
+    void mousePressEvent(QMouseEvent*);
+    void mouseMoveEvent(QMouseEvent*);
+    void mouseReleaseEvent(QMouseEvent*);
+
+    void homeView();
+
+    void normalizeAngle(int&);
+    void setXRotation(int);
+    void setYRotation(int);
+    void setZRotation(int);
+    int  getXRotation();
+    int  getYRotation();
+    int  getZRotation();
+
+    int xRot;
+    int yRot;
+    int zRot;
+    QPoint lastPos;
+
     std::vector <GeometricObject*> graphicalObjects;
     int timerID;
 
