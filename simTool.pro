@@ -25,7 +25,8 @@ SOURCES += main.cpp\
     xmlreader.cpp \
     graphfactory.cpp \
     geometricobject.cpp \
-    graphicalnode.cpp
+    graphicalnode.cpp \
+    graphicaledge.cpp
 HEADERS += mainwindow.h \
         node.hpp \
         edge.hpp \
@@ -46,6 +47,7 @@ HEADERS += mainwindow.h \
     xmlwriter.hpp \
     graphfactory.hpp \
     geometricobject.hpp \
-    graphicalnode.hpp
+    graphicalnode.hpp \
+    graphicaledge.hpp
 FORMS   += mainwindow.ui
 CONFIG  += console

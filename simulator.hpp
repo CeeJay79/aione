@@ -5,6 +5,9 @@
 #include <QTimerEvent>
 #include "geometricobject.hpp"
 #include "graphicalnode.hpp"
+#include "graphicaledge.hpp"
+
+#include <iostream>
 
 class Simulator : public QGLWidget
 {
@@ -21,8 +24,6 @@ protected:
 
 private:
     std::vector <GeometricObject*> graphicalObjects;
-    GraphicalNode node1;
-
     int timerID;
 
 signals:

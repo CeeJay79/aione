@@ -6,22 +6,17 @@ GraphicalNode::GraphicalNode()
 
 void GraphicalNode::create()
 {
-    mListIndex = glGenLists(2);
+    GLUquadricObj* sphere;
+    mListIndex = glGenLists(1);
 
-    if (!mListIndex)
+    if (mListIndex != 0)
     {
-        GLUquadricObj* sphere;
-        glNewList(mListIndex+1,GL_COMPILE);
-
-            sphere = gluNewQuadric();
-            gluQuadricDrawStyle(sphere,GLU_FILL);
-            gluSphere(sphere,radius,8,8);
-
-        glEndList();
-
         glNewList(mListIndex,GL_COMPILE);
             glColor3f(1.0,0.0,0.0);
-            glCallList(mListIndex+1);
+            sphere = gluNewQuadric();
+            gluQuadricDrawStyle(sphere,GLU_TRUE);
+            gluQuadricNormals(sphere,GLU_SMOOTH);
+            gluSphere(sphere,radius,16,16);
         glEndList();
     }
 }
