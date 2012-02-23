@@ -5,6 +5,8 @@
 #include "search.hpp"
 #include "feeder.hpp"
 
+#include <iostream>
+
 class AStarGraphSearch : public Search
 {
 public:

@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 
     // Initialize Uninitialized Variables
     search.initInitNode(1);
-    search.initGoalNode(10);
+    search.initGoalNode(7);
     search.initHeuristic(&heur);
 
     // Run the algorithm
@@ -29,7 +29,6 @@ int main(int argc, char *argv[])
     {
         std::cout << i->nodeID << " : " << i->getCurrentCost() << std::endl;
     }
-
 
 
 //    feeder.exportToXml("graphexport.xml");
@@ -45,6 +44,9 @@ int main(int argc, char *argv[])
 
 //    MainWindow w;
 //    w.show();
+
+    Simulator x;
+    x.show();
 
 #endif
 

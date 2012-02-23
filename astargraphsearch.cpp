@@ -18,14 +18,12 @@ Node* AStarGraphSearch::runSearch()
     initialNode = feeder->getNode(initNodeID);
     initialNode->setCurrentCost(0);
 
-
     Node* finalNode = feeder->getNode(goalNodeID);
     double k = heuristic->evaluateHeuristic(0,finalNode);
-    addNodeToFrontier(initialNode,0);
+    addNodeToFrontier(initialNode,k);
 
     while (frontier.nodes.size() != 0)
     {
-
         currentNode = popFrontier();
         currentNode->setExplored(1);
 
@@ -41,7 +39,6 @@ Node* AStarGraphSearch::runSearch()
         int numberOfSuccessors = edgeSuccessors.size();
         nodeSuccessors.resize(numberOfSuccessors);
 
-
         for (int i=0; i<numberOfSuccessors; i++)
         {
             double g;
@@ -51,19 +48,23 @@ Node* AStarGraphSearch::runSearch()
 
             g = currentNode->getCurrentCost() + edgeSuccessors[i]->getCost();
             f = heuristic->evaluateHeuristic(g,nodeSuccessors[i]);
-            nodeSuccessors[i]->setCurrentCost(g);
-            nodeSuccessors[i]->setHeuristicValue(f);
 
             if (isNodeInExploredSet(nodeSuccessors[i]) == 0)
             {
                 int jj = isNodeInFrontier(nodeSuccessors[i]);
                 if (jj == 0)
                 {
+                    nodeSuccessors[i]->setCurrentCost(g);
+                    nodeSuccessors[i]->setHeuristicValue(f);
+
                     nodeSuccessors[i]->setParent(currentNode);
                     addNodeToFrontier(nodeSuccessors[i],f);
                 }
                 else if (jj > 0)
                 {
+                    nodeSuccessors[i]->setCurrentCost(g);
+                    nodeSuccessors[i]->setHeuristicValue(f);
+
                     nodeSuccessors[i]->setParent(currentNode);
                     frontier.nodes[jj] = nodeSuccessors[i];
                     frontier.costs[jj] = nodeSuccessors[i]->getHeuristicValue();
@@ -75,7 +76,10 @@ Node* AStarGraphSearch::runSearch()
     if (frontier.nodes.size() == 0)
         return NULL;
     else
+    {
+
         return currentNode;
+    }
 }
 
 void AStarGraphSearch::sortPriorityQueue()

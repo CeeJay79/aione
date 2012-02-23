@@ -4,7 +4,7 @@ Simulator::Simulator(QWidget *parent) :
     QGLWidget(parent)
 {
     timerID = 0;
-//        timerID = startTimer(500);
+//    timerID = startTimer(10);
 }
 
 Simulator::~Simulator()
