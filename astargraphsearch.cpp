@@ -18,6 +18,9 @@ Node* AStarGraphSearch::runSearch()
     initialNode = feeder->getNode(initNodeID);
     initialNode->setCurrentCost(0);
 
+
+    Node* finalNode = feeder->getNode(goalNodeID);
+    double k = heuristic->evaluateHeuristic(0,finalNode);
     addNodeToFrontier(initialNode,0);
 
     while (frontier.nodes.size() != 0)
@@ -25,7 +28,6 @@ Node* AStarGraphSearch::runSearch()
 
         currentNode = popFrontier();
         currentNode->setExplored(1);
-
 
         goalFound = goalTest(currentNode);
         if (goalFound)
@@ -39,8 +41,7 @@ Node* AStarGraphSearch::runSearch()
         int numberOfSuccessors = edgeSuccessors.size();
         nodeSuccessors.resize(numberOfSuccessors);
 
-        int row;
-        double minF = 999999999999;
+
         for (int i=0; i<numberOfSuccessors; i++)
         {
             double g;
@@ -52,12 +53,6 @@ Node* AStarGraphSearch::runSearch()
             f = heuristic->evaluateHeuristic(g,nodeSuccessors[i]);
             nodeSuccessors[i]->setCurrentCost(g);
             nodeSuccessors[i]->setHeuristicValue(f);
-
-            if (f < minF)
-            {
-                minF = f;
-                row  = i;
-            }
 
             if (isNodeInExploredSet(nodeSuccessors[i]) == 0)
             {
