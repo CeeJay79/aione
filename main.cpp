@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 
     // Initialize Uninitialized Variables
     search.initInitNode(1);
-    search.initGoalNode(7);
+    search.initGoalNode(10);
     search.initHeuristic(&heur);
 
     // Run the algorithm
@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
 
     for (Node* i=solution; i!=NULL; i=i->parentNode)
     {
-        std::cout << i->nodeID << " : " << i->getCurrentCost() << std::endl;
+        std::cout << i->nodeID << " : " << i->getCurrentCost() <<  " : " << i->getHeuristicValue() << std::endl;
     }
 
 

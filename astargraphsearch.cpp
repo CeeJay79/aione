@@ -10,8 +10,6 @@ Node* AStarGraphSearch::runSearch()
     bool  goalFound;
     Node* currentNode;
     Node* initialNode;
-    std::vector <Node*> nodeSuccessors;
-    std::vector <Edge*> edgeSuccessors;
 
     // Initialize Variables
     goalFound = 0;
@@ -22,8 +20,12 @@ Node* AStarGraphSearch::runSearch()
     double k = heuristic->evaluateHeuristic(0,finalNode);
     addNodeToFrontier(initialNode,k);
 
-    while (frontier.nodes.size() != 0)
+    while (numberOfNodesInFrontier > 0)
     {
+        // Declare some variables
+        std::vector <Node*> nodeSuccessors;
+        std::vector <Edge*> edgeSuccessors;
+
         currentNode = popFrontier();
         currentNode->setExplored(1);
 
@@ -44,7 +46,7 @@ Node* AStarGraphSearch::runSearch()
             double g;
             double f;
 
-            nodeSuccessors[i] = edgeSuccessors[i]->getTarget(); // This is very shit job by shit man
+            nodeSuccessors[i] = edgeSuccessors[i]->getTarget();
 
             g = currentNode->getCurrentCost() + edgeSuccessors[i]->getCost();
             f = heuristic->evaluateHeuristic(g,nodeSuccessors[i]);
@@ -66,8 +68,10 @@ Node* AStarGraphSearch::runSearch()
                     nodeSuccessors[i]->setHeuristicValue(f);
 
                     nodeSuccessors[i]->setParent(currentNode);
-                    frontier.nodes[jj] = nodeSuccessors[i];
-                    frontier.costs[jj] = nodeSuccessors[i]->getHeuristicValue();
+                    frontier.nodes.erase(frontier.nodes.begin() + jj);
+                    frontier.costs.erase(frontier.costs.begin() + jj);
+                    numberOfNodesInFrontier--;
+                    addNodeToFrontier(nodeSuccessors[i],f);
                 }
             }
         }

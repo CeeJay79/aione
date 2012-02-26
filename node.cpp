@@ -4,6 +4,7 @@ Node::Node()
 {
     parentNode = NULL;
     realCostToGetHere = 0;
+    heuristicValue = 0;
     explored = false;
 }
 
@@ -12,6 +13,7 @@ Node::Node(int inNodeID)
     nodeID = inNodeID;
     parentNode = NULL;
     realCostToGetHere = 0;
+    heuristicValue = 0;
     explored = false;
 }
 

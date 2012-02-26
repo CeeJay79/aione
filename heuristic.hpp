@@ -11,7 +11,6 @@ public:
 
     void initGoal(Node*);
     double evaluateHeuristic(double,Node*);
-//    void evaluateHeuristic(Node*,Edge*,Node*);
 
 private:
     Node* goalNode;

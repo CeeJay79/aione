@@ -120,7 +120,7 @@ std::map<int,SocialNode*>* XmlReader::parseSocialGraph(){
             Edge *edge1 = new Edge(sourceNode,targetNode);
             Edge *edge2 = new Edge(targetNode,sourceNode);
             edge1->setCost(1);
-            edge2->setCost(2);
+            edge2->setCost(1);
             sourceNode->addFriend(edge1);
             targetNode->addFriend(edge2);
 
