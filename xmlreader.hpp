@@ -76,12 +76,14 @@ public :
                     // Mechanical node : parsing X,Y,Z coordinates
                     if (typeid(NodeType) == typeid(MechanicalNode)){
                         double x,y,z;
-                        ss.str(cur_node->first_attribute("x")->value());
-                        ss >> x;
-                        ss.str(cur_node->first_attribute("y")->value());
-                        ss >> y;
-                        ss.str(cur_node->first_attribute("z")->value());
-                        ss >> z;
+
+                        x = atof(cur_node->first_attribute("x")->value());
+
+                        y = atof(cur_node->first_attribute("y")->value());
+
+                        z = atof(cur_node->first_attribute("z")->value());
+
+                        std::cout << "ID : " << idd << "/ XX :" << x << "/ Y : " << y << " / Z : " << z << std::endl;
 
                         MechanicalNode* mechnode = (MechanicalNode *)newnode;
                         mechnode->setPos(x,y,z);
