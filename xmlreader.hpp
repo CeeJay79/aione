@@ -68,6 +68,19 @@ public :
                 cur_node = cur_node->first_node("node");
 
 
+                /* Looping over the nodes */
+                for (cur_node;cur_node && strcmp(cur_node->name(),"node") == 0; cur_node = cur_node->next_sibling()){
+
+                    // String to integer ID
+                    int idd;
+                    std::istringstream ss(cur_node->first_attribute("id")->value());
+                    ss >> idd;
+
+                    mapping->insert(std::pair<int,SocialNode*>(idd,new SocialNode(idd)));
+
+
+                }
+
                 /* Looping over the edges */
                 for (cur_node;cur_node &&  strcmp(cur_node->name(),"edge") == 0; cur_node = cur_node->next_sibling()){
 
@@ -79,6 +92,8 @@ public :
                     ss2 >> targetid;
 
                    // cout << cur_node->name() << " : " << cur_node->first_attribute("source")->value() << " to " << cur_node->first_attribute("target")->value()  << endl;
+
+
 
                     // Retrives node point from map
                     SocialNode *sourceNode = mapping->at(sourceid);
