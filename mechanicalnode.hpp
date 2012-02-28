@@ -8,6 +8,8 @@ class MechanicalNode : public Node
 public:
     MechanicalNode();
 
+    void setPos(double x, double y, double z);
+
     double pos[3];
 };
 

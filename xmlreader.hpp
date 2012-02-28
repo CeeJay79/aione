@@ -69,9 +69,25 @@ public :
                     std::istringstream ss(cur_node->first_attribute("id")->value());
                     ss >> idd;
 
-                    // Mechanical node X,Y,Z coordinates
+                    T* newnode = new T(idd);
 
-                    mapping->insert(std::pair<int,T*>(idd,new T(idd)));
+                    mapping->insert(std::pair<int,T*>(idd,newnode));
+
+                    // Mechanical node : parsing X,Y,Z coordinates
+                    if (typeid(T) == typeid(MechanicalNode)){
+                        double x,y,z;
+                        ss.str(cur_node->first_attribute("x")->value());
+                        ss >> x;
+                        ss.str(cur_node->first_attribute("y")->value());
+                        ss >> y;
+                        ss.str(cur_node->first_attribute("z")->value());
+                        ss >> z;
+
+                        MechanicalNode* mechnode = (MechanicalNode *)newnode;
+                        mechnode->setPos(x,y,z);
+                    }
+
+
 
 
                 }
