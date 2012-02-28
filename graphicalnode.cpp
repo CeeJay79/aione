@@ -25,7 +25,7 @@ void GraphicalNode::draw()
 {
 
     glPushMatrix();
-//        glTranslated(0.0,0.0,0.0);
+        glTranslated(pos[0],pos[1],pos[2]);
 //        glRotated(0.0,0.0,0.0,0.0);
         glCallList(mListIndex);
     glPopMatrix();
@@ -34,6 +34,15 @@ void GraphicalNode::draw()
 void GraphicalNode::setRadius(double inRadius)
 {
     radius = inRadius;
+}
+
+void GraphicalNode::setPosition(double inPos[])
+{
+    pos[0] = inPos[0];
+    pos[1] = inPos[1];
+    pos[2] = inPos[2];
+
+    std::cout << pos[0] << "\t" << pos[1] << "\t" << pos[2] << std::endl;
 }
 
 double GraphicalNode::getRadius()
