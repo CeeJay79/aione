@@ -3,14 +3,20 @@
 #include "astargraphsearch.hpp"
 #include "offlinefeeder.hpp"
 #include "socialnode.hpp"
-#include <iostream>
 #include "simulator.hpp"
 
+#include <iostream>
 
 #define GUI_DISPLAY 1
 
 int main(int argc, char *argv[])
 {
+    // Declare Variables
+    Heuristic heur;
+//    OfflineFeeder<SocialNode> feeder("graph1.xml");
+    OfflineFeeder<MechanicalNode> feeder("mechgraph.xml");
+    AStarGraphSearch search(&feeder);
+
     // GUI Display variables
 #if GUI_DISPLAY == 1
     QApplication a(argc, argv);
@@ -19,19 +25,7 @@ int main(int argc, char *argv[])
     w.show();
 
     Simulator* simPtr = w.getSimulatorPointer();
-#endif
-
-
-    // Declare Variables
-    Heuristic heur;
-//    OfflineFeeder<SocialNode> feeder("graph1.xml");
-    OfflineFeeder<MechanicalNode> feeder("mechgraph.xml");
-    AStarGraphSearch search(&feeder);
-
-
-
-
-#if GUI_DISPLAY == 1
+    simPtr->initializeNetwork(feeder.getMapping());
     search.registerObserver(simPtr);
 #endif
 
