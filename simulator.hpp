@@ -5,12 +5,14 @@
 #include <QtGui/QKeyEvent>
 #include <QTimerEvent>
 #include <map>
+#include <cmath>
 #include "geometricobject.hpp"
 #include "graphicalnode.hpp"
 #include "graphicaledge.hpp"
 #include "observer.hpp"
 #include "mechanicalnode.hpp"
 #include "node.hpp"
+#include "edge.hpp"
 
 #include <iostream>
 

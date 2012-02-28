@@ -4,7 +4,7 @@ Simulator::Simulator(QWidget *parent) :
     QGLWidget(parent)
 {
     timerID = 0;
-    timerID = startTimer(10);
+//    timerID = startTimer(10);
 }
 
 Simulator::~Simulator()
@@ -65,29 +65,6 @@ void Simulator::initializeGL()
     glColorMaterial(GL_FRONT, GL_AMBIENT_AND_DIFFUSE);
     glMaterialfv(GL_FRONT, GL_SPECULAR,specular);
     glMateriali(GL_FRONT,GL_SHININESS,128);
-
-
-//    // Create Graphical Nodes
-//    int n = 1;
-//    for (int i=0; i<n; i++)
-//    {
-//        GraphicalNode* gNode = new GraphicalNode();
-//        graphicalObjects.push_back(gNode);
-//        gNode->setRadius(1);
-//        gNode->create();
-//    }
-
-//    // Create Graphical Edges
-//    int j = 1;
-//    for (int i=0; i<j; i++)
-//    {
-//        GraphicalEdge* gEdge = new GraphicalEdge();
-//        graphicalObjects.push_back(gEdge);
-//        gEdge->setDimension(0.5,5);
-//        gEdge->create();
-//    }
-
-
 }
 
 void Simulator::paintGL()
@@ -128,10 +105,39 @@ void Simulator::createNetwork()
     {
         GraphicalNode* gNode = new GraphicalNode();
         graphicalObjects.push_back(gNode);
+        double* posSource = ((*it).second)->getPos();
         gNode->setRadius(1);
-        gNode->setPosition(((*it).second)->getPos());
+        gNode->setPosition(posSource);
         gNode->create();
+
+
+        std::vector <Edge*>* successors = ((*it).second)->getSuccessors();
+        for (int i=0; i< successors->size(); i++)
+        {
+            double* posTarget = ((MechanicalNode*)(successors->at(i))->getTarget())->getPos();
+
+            double deltaX = posTarget[0] - posSource[0];
+            double deltaY = posTarget[1] - posSource[1];
+            double deltaZ = posTarget[2] - posSource[2];
+
+            double length = sqrt(deltaX*deltaX + deltaY*deltaY + deltaZ*deltaZ);
+
+//            GraphicalEdge* gEdge = new GraphicalEdge();
+//            graphicalObjects.push_back(gEdge);
+//            gEdge->setDimension(0.5,5);
+//            gEdge->create();
+        }
+
     }
+
+    // Create Graphical Edges
+    //    for (int i=0; i<j; i++)
+    //    {
+    //        GraphicalEdge* gEdge = new GraphicalEdge();
+    //        graphicalObjects.push_back(gEdge);
+    //        gEdge->setDimension(0.5,5);
+    //        gEdge->create();
+    //    }
 }
 
 void Simulator::keyPressEvent(QKeyEvent* event)
