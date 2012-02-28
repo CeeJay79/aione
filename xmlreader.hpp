@@ -58,9 +58,6 @@ public :
         xml_node<>* cur_node = doc.first_node("graphml")->first_node("graph");
 
 
-
-        if (typeid(T) == typeid(SocialNode)){
-
                 cur_node = cur_node->first_node("node");
 
 
@@ -72,7 +69,9 @@ public :
                     std::istringstream ss(cur_node->first_attribute("id")->value());
                     ss >> idd;
 
-                    mapping->insert(std::pair<int,SocialNode*>(idd,new SocialNode(idd)));
+                    // Mechanical node X,Y,Z coordinates
+
+                    mapping->insert(std::pair<int,T*>(idd,new T(idd)));
 
 
                 }
@@ -89,31 +88,23 @@ public :
 
                    // cout << cur_node->name() << " : " << cur_node->first_attribute("source")->value() << " to " << cur_node->first_attribute("target")->value()  << endl;
 
-
-
                     // Retrives node point from map
-                    SocialNode *sourceNode = mapping->at(sourceid);
-                    SocialNode *targetNode = mapping->at(targetid);
+
+                       T *sourceNode = mapping->at(sourceid);
+                       T *targetNode = mapping->at(targetid);
+
+
                     /* Adds friend to friendlist */
                     Edge *edge1 = new Edge(sourceNode,targetNode);
                     Edge *edge2 = new Edge(targetNode,sourceNode);
                     edge1->setCost(1);
                     edge2->setCost(1);
-                    sourceNode->addFriend(edge1);
-                    targetNode->addFriend(edge2);
-
-
+                    sourceNode->addSuccessor(edge1);
+                    targetNode->addSuccessor(edge2);
 
                 }
 
 
-        }// End Social node
-
-        else if (typeid(T) == typeid(MechanicalNode)){
-
-
-
-        }//End Mechanical node
 
         std::cout << "XML import completed" << std::endl;
 

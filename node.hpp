@@ -4,6 +4,8 @@
 #include <vector>
 #include <string>
 
+class Edge;
+
 enum NodeType
 {
     GENERIC,
@@ -23,6 +25,9 @@ public:
     void setNodeID(int);
     void setNodeType(NodeType);
 
+    void addSuccessor(Edge *);
+    std::vector<Edge*>* getSuccessors();
+
     double getCurrentCost();
     double getHeuristicValue();
     void   setParent(Node*);
@@ -40,12 +45,11 @@ public:
 
 protected:
 
-
-
-
     double realCostToGetHere;
     double heuristicValue;
     bool explored;
+
+    std::vector<Edge*> successors;// This is to be used with Offline nodes or to store succesors of online nodes
 
     NodeType type;
 };

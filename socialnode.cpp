@@ -6,11 +6,11 @@ SocialNode::SocialNode(int id_) :
 {
 }
 
-void SocialNode::addFriend(Edge * friend_){
+//void SocialNode::addFriend(Edge * friend_){
 
-    friends.push_back(friend_);
+//    friends.push_back(friend_);
 
-}
+//}
 
 std::string SocialNode::toXML(){
 
@@ -20,8 +20,8 @@ std::string SocialNode::toXML(){
 
 }
 
-std::vector<Edge*>* SocialNode::getFriends(){
+//std::vector<Edge*>* SocialNode::getFriends(){
 
-    return &friends;
+//    return &friends;
 
-}
+//}

@@ -45,5 +45,5 @@ Node* OfflineSocialFeeder::getNode(int inNodeID)
 
 void OfflineSocialFeeder::getSuccessors(Node* inCurrentNode,std::vector<Edge *>* inEdgeSuccessors)
 {
-    *inEdgeSuccessors = *(((SocialNode*)inCurrentNode)->getFriends());
+    *inEdgeSuccessors = *(((SocialNode*)inCurrentNode)->getSuccessors());
 }

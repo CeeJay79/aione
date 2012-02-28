@@ -142,7 +142,7 @@ void XmlWriter::write(OfflineSocialFeeder* graph_){
     for(it = mapping->begin(); it != mapping->end(); it++) {
 
         SocialNode *node = it->second;
-        vector<Edge *>* friends = node->getFriends();
+        vector<Edge *>* friends = node->getSuccessors();
         /* Looping over edges for a particular node */
         int len = friends->size();
 

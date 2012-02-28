@@ -17,6 +17,20 @@ Node::Node(int inNodeID)
     explored = false;
 }
 
+void Node::addSuccessor(Edge *e)
+{
+
+    successors.push_back(e);
+
+}
+
+std::vector<Edge*>* Node::getSuccessors(){
+
+    return &successors;
+
+}
+
+
 int Node::getNodeID()
 {
     return nodeID;
