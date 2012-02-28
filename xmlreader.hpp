@@ -36,12 +36,12 @@ private:
 
 public :
 
-    template<class T>
-    std::map<int,T*>* parseGraph(){
+    template<class NodeType>
+    std::map<int,NodeType*>* parseGraph(){
 
         // Common parsing code
 
-        std::map<int,T*>* mapping = new std::map<int,T*>();
+        std::map<int,NodeType*>* mapping = new std::map<int,NodeType*>();
 
         // make a safe-to-modify copy of input_xml
         // (you should never modify the contents of an std::string directly)
@@ -69,12 +69,12 @@ public :
                     std::istringstream ss(cur_node->first_attribute("id")->value());
                     ss >> idd;
 
-                    T* newnode = new T(idd);
+                    NodeType* newnode = new NodeType(idd);
 
-                    mapping->insert(std::pair<int,T*>(idd,newnode));
+                    mapping->insert(std::pair<int,NodeType*>(idd,newnode));
 
                     // Mechanical node : parsing X,Y,Z coordinates
-                    if (typeid(T) == typeid(MechanicalNode)){
+                    if (typeid(NodeType) == typeid(MechanicalNode)){
                         double x,y,z;
                         ss.str(cur_node->first_attribute("x")->value());
                         ss >> x;
@@ -106,8 +106,8 @@ public :
 
                     // Retrives node point from map
 
-                       T *sourceNode = mapping->at(sourceid);
-                       T *targetNode = mapping->at(targetid);
+                       NodeType *sourceNode = mapping->at(sourceid);
+                       NodeType *targetNode = mapping->at(targetid);
 
 
                     /* Adds friend to friendlist */
