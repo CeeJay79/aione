@@ -28,10 +28,6 @@ public:
 
     void print();
 
-    std::map<int,SocialNode*>* parseSocialGraph();
-    std::map<int,MechanicalNode*>* parseMechanicalGraph();
-
-
 private:
 
     std::string str;
