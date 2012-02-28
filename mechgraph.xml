@@ -4,17 +4,17 @@
     xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
      http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
   <graph id="G" edgedefault="undirected">
-    <node id="0" x="1" y="0" z="0"/>
-    <node id="1" x="2" y="0" z="0"/>
-    <node id="2" x="3" y="0" z="0"/>
-    <node id="3" x="4" y="0" z="0"/>
-    <node id="4" x="5" y="0" z="0"/>
-    <node id="5" x="6" y="0" z="0"/>
-    <node id="6" x="7" y="0" z="0"/>
-    <node id="7" x="8" y="0" z="0"/>
-    <node id="8" x="9" y="0" z="0"/>
-    <node id="9" x="10" y="0" z="0"/>
-    <node id="10" x="11" y="0" z="0"/>
+    <node id="0" x="1" y="1" z="4"/>
+    <node id="1" x="4" y="3" z="2"/>
+    <node id="2" x="12" y="5" z="7"/>
+    <node id="3" x="7" y="7" z="3"/>
+    <node id="4" x="8" y="9" z="9"/>
+    <node id="5" x="2" y="11" z="12"/>
+    <node id="6" x="7" y="13" z="3"/>
+    <node id="7" x="2" y="15" z="5"/>
+    <node id="8" x="5" y="17" z="6"/>
+    <node id="9" x="7" y="19" z="8"/>
+    <node id="10" x="11" y="21" z="3"/>
     <edge source="0" target="2"/>
     <edge source="1" target="2"/>
     <edge source="2" target="3"/>
