@@ -19,7 +19,7 @@ XmlWriter::XmlWriter(const std::string& filename_)
     filename = filename_;
 }
 
-void XmlWriter::write(OfflineSocialFeeder* graph_){
+void XmlWriter::write(OfflineFeeder<SocialNode>* graph_){
 
     rapidxml::xml_document<> doc;
 

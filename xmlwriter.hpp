@@ -2,16 +2,18 @@
 #define XMLWRITER_HPP
 
 #include <string>
-#include "offlinesocialfeeder.hpp"
+
 #include "rapidxml.hpp"
 #include "rapidxml_print.hpp"
+#include "socialnode.hpp"
+#include "offlinefeeder.hpp"
 
 class XmlWriter
 {
 public:
     XmlWriter(const std::string& filename);
 
-    void write(OfflineSocialFeeder* graph_);
+    void write(OfflineFeeder<SocialNode>* graph_);
 
 private:
     std::string filename;

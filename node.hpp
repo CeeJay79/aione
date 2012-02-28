@@ -37,8 +37,6 @@ public:
     bool isExplored();
     void setExplored(bool a);
 
-    virtual std::string toXML() = 0;
-
     // change this shit
     Node* parentNode;
     int   nodeID;

@@ -6,7 +6,7 @@
 class MechanicalNode : public Node
 {
 public:
-    MechanicalNode();
+    MechanicalNode(int );
 
     void setPos(double x, double y, double z);
 

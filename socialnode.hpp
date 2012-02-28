@@ -14,7 +14,6 @@ public:
 
     void addFriend(Edge *);
 
-    std::string toXML();
 
     std::vector<Edge*>* getFriends();
 

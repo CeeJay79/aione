@@ -1,6 +1,7 @@
 #include "mechanicalnode.hpp"
 
-MechanicalNode::MechanicalNode()
+MechanicalNode::MechanicalNode(int id_):
+    Node(id_)
 {
 }
 

@@ -20,7 +20,6 @@ SOURCES += main.cpp\
         offlinefeeder.cpp \
     simulator.cpp \
     heuristic.cpp \
-    offlinesocialfeeder.cpp \
     xmlwriter.cpp \
     xmlreader.cpp \
     graphfactory.cpp \
@@ -40,7 +39,6 @@ HEADERS += mainwindow.h \
         offlinefeeder.hpp \
     simulator.hpp \
     heuristic.hpp \
-    offlinesocialfeeder.hpp \
     rapidxml_utils.hpp \
     rapidxml_print.hpp \
     rapidxml_iterators.hpp \

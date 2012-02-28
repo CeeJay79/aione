@@ -1,8 +1,8 @@
 #include <QtGui/QApplication>
 #include "mainwindow.h"
-#include "offlinesocialfeeder.hpp"
 #include "astargraphsearch.hpp"
-
+#include "offlinefeeder.hpp"
+#include "socialnode.hpp"
 #include <iostream>
 #include "simulator.hpp"
 
@@ -13,8 +13,11 @@ int main(int argc, char *argv[])
 {
     // Declare Variables
     Heuristic heur;
-    OfflineSocialFeeder feeder("graph1.xml");
+//    OfflineFeeder<SocialNode> feeder("graph1.xml");
+
+    OfflineFeeder<MechanicalNode> feeder("mechgraph.xml");
     AStarGraphSearch search(&feeder);
+
 
 
     // Initialize Uninitialized Variables
