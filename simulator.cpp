@@ -16,6 +16,8 @@ Simulator::~Simulator()
     // Do i need to popback to avoid memory leaks !!!
 }
 
+//void Simulator::setNetwork()
+
 void Simulator::resizeGL(int width, int height)
 {
     GLfloat w = (double)width/(double)height;
@@ -101,6 +103,15 @@ void Simulator::paintGL()
     }
 
     glFlush();
+}
+
+// Observer related stuff
+
+void Simulator::notify()
+{
+
+    updateGL();
+
 }
 
 void Simulator::keyPressEvent(QKeyEvent* event)
@@ -213,3 +224,4 @@ void Simulator::homeView()
     if (!timerID)
         updateGL();
 }
+

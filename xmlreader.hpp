@@ -7,9 +7,19 @@
 #include "edge.hpp"
 #include "node.hpp"
 #include <map>
+#include "typeinfo"
+
+#include <cstdlib>
+#include <iostream>
+#include <fstream>
+#include <cstring>
+#include <sstream>
 
 /* Includes related to node models */
 #include "socialnode.hpp"
+#include "mechanicalnode.hpp"
+
+using namespace rapidxml;
 
 class XmlReader
 {
@@ -18,8 +28,9 @@ public:
 
     void print();
 
-
     std::map<int,SocialNode*>* parseSocialGraph();
+    std::map<int,MechanicalNode*>* parseMechanicalGraph();
+
 
 private:
 
@@ -27,6 +38,82 @@ private:
 
     rapidxml::xml_document<> doc;
 
+public :
+
+    template<class T>
+    std::map<int,T*>* parseGraph(){
+
+        // Common parsing code
+
+        std::map<int,T*>* mapping = new std::map<int,T*>();
+
+        // make a safe-to-modify copy of input_xml
+        // (you should never modify the contents of an std::string directly)
+        std::vector<char> xml_copy(str.begin(), str.end());
+        xml_copy.push_back('\0');
+        doc.parse<parse_declaration_node | parse_no_data_nodes>(&xml_copy[0]);
+
+
+        std::string encoding = doc.first_node()->first_attribute("encoding")->value();
+        // encoding == "utf-8"
+
+        std::cout << encoding;
+
+        xml_node<>* cur_node = doc.first_node("graphml")->first_node("graph");
+
+
+
+        if (typeid(T) == typeid(SocialNode)){
+
+                cur_node = cur_node->first_node("node");
+
+
+                /* Looping over the edges */
+                for (cur_node;cur_node &&  strcmp(cur_node->name(),"edge") == 0; cur_node = cur_node->next_sibling()){
+
+                    // String to integer ID
+                    int sourceid, targetid;
+                    std::istringstream ss1(cur_node->first_attribute("source")->value());
+                    ss1 >> sourceid;
+                    std::istringstream ss2(cur_node->first_attribute("target")->value());
+                    ss2 >> targetid;
+
+                   // cout << cur_node->name() << " : " << cur_node->first_attribute("source")->value() << " to " << cur_node->first_attribute("target")->value()  << endl;
+
+                    // Retrives node point from map
+                    SocialNode *sourceNode = mapping->at(sourceid);
+                    SocialNode *targetNode = mapping->at(targetid);
+                    /* Adds friend to friendlist */
+                    Edge *edge1 = new Edge(sourceNode,targetNode);
+                    Edge *edge2 = new Edge(targetNode,sourceNode);
+                    edge1->setCost(1);
+                    edge2->setCost(1);
+                    sourceNode->addFriend(edge1);
+                    targetNode->addFriend(edge2);
+
+
+
+                }
+
+
+        }// End Social node
+
+        else if (typeid(T) == typeid(MechanicalNode)){
+
+
+
+        }//End Mechanical node
+
+        std::cout << "XML import completed" << std::endl;
+
+
+        return mapping;
+
+
+
+
+
+    }
 
 
 };

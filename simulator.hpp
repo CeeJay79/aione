@@ -7,10 +7,10 @@
 #include "geometricobject.hpp"
 #include "graphicalnode.hpp"
 #include "graphicaledge.hpp"
-
+#include "observer.hpp"
 #include <iostream>
 
-class Simulator : public QGLWidget
+class Simulator : public QGLWidget, public Observer
 {
     Q_OBJECT
 public:
@@ -22,6 +22,8 @@ private:
     void initializeGL();
     void resizeGL(int,int);
     void paintGL();
+
+    void notify();
 
     void timerEvent(QTimerEvent*);
     void keyPressEvent(QKeyEvent*);

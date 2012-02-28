@@ -1,5 +1,6 @@
 #include "offlinesocialfeeder.hpp"
 #include "xmlwriter.hpp"
+#include "socialnode.hpp"
 
 using namespace std;
 
@@ -14,8 +15,8 @@ OfflineSocialFeeder::OfflineSocialFeeder(const string& filename)
 
     /* XML import */
     XmlReader xmlreader(filename);
-    mapping = xmlreader.parseSocialGraph();
-
+//    mapping = xmlreader.parseSocialGraph();
+    mapping = xmlreader.parseGraph<SocialNode>();
     cout << "OfflineSOcialFeeder built from XML File : " << filename  << endl;
 
 }

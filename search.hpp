@@ -6,6 +6,7 @@
 #include "heuristic.hpp"
 #include "node.hpp"
 #include "edge.hpp"
+#include "observable.hpp"
 
 struct nodeAndCost
 {
@@ -13,7 +14,7 @@ struct nodeAndCost
     std::vector <double> costs;
 };
 
-class Search
+class Search : public Observable
 {
 public:
 

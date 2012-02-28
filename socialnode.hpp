@@ -18,6 +18,8 @@ public:
 
     std::vector<Edge*>* getFriends();
 
+    operator int(){return SOCIAL_NODE;}
+
 private:
     std::vector<Edge*> friends;
 };

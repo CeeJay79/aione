@@ -26,7 +26,9 @@ SOURCES += main.cpp\
     graphfactory.cpp \
     geometricobject.cpp \
     graphicalnode.cpp \
-    graphicaledge.cpp
+    graphicaledge.cpp \
+    observer.cpp \
+    observable.cpp
 HEADERS += mainwindow.h \
         node.hpp \
         edge.hpp \
@@ -48,6 +50,8 @@ HEADERS += mainwindow.h \
     graphfactory.hpp \
     geometricobject.hpp \
     graphicalnode.hpp \
-    graphicaledge.hpp
+    graphicaledge.hpp \
+    observer.hpp \
+    observable.hpp
 FORMS   += mainwindow.ui
 CONFIG  += console
