@@ -20,8 +20,8 @@
    <widget class="Simulator" name="widget" native="true">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>50</y>
+      <x>60</x>
+      <y>20</y>
       <width>481</width>
       <height>361</height>
      </rect>
@@ -56,7 +56,7 @@
   <customwidget>
    <class>Simulator</class>
    <extends>QWidget</extends>
-   <header>simulator.hpp</header>
+   <header location="global">simulator.hpp</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

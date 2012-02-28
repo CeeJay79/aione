@@ -8,6 +8,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 }
 
+Simulator* MainWindow::getSimulatorPointer()
+{
+    return (Simulator*)ui->widget;
+}
+
 MainWindow::~MainWindow()
 {
     delete ui;
