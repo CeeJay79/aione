@@ -83,7 +83,7 @@ public :
 
                         z = atof(cur_node->first_attribute("z")->value());
 
-                        std::cout << "ID : " << idd << "/ XX :" << x << "/ Y : " << y << " / Z : " << z << std::endl;
+//                        std::cout << "ID : " << idd << "/ XX :" << x << "/ Y : " << y << " / Z : " << z << std::endl;
 
                         MechanicalNode* mechnode = (MechanicalNode *)newnode;
                         mechnode->setPos(x,y,z);

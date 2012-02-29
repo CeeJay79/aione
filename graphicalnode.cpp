@@ -18,6 +18,8 @@ void GraphicalNode::create()
             gluQuadricNormals(sphere,GLU_SMOOTH);
             gluSphere(sphere,radius,16,16);
         glEndList();
+        // Delete the pointer
+        gluDeleteQuadric(sphere);
     }
 }
 
@@ -41,8 +43,6 @@ void GraphicalNode::setPosition(double inPos[])
     pos[0] = inPos[0];
     pos[1] = inPos[1];
     pos[2] = inPos[2];
-
-    std::cout << pos[0] << "\t" << pos[1] << "\t" << pos[2] << std::endl;
 }
 
 double GraphicalNode::getRadius()

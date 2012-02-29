@@ -14,13 +14,13 @@ public:
 
     void setPosition(double*);
     void setDimension(double,double);
-    void setOrientation(double,double);
+    void setOrientation(double,double,double);
     void getDimension(double&,double&);
 
 private:
     double radius;
     double length;
-    double xRot,yRot;
+    double xRot,yRot,zRot;
     double pos[3];
 
 };

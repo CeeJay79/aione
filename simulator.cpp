@@ -1,5 +1,7 @@
 #include "simulator.hpp"
 
+double pi = atan(1.0)*4.0;
+
 Simulator::Simulator(QWidget *parent) :
     QGLWidget(parent)
 {
@@ -121,14 +123,23 @@ void Simulator::createNetwork()
             double deltaY = posTarget[1] - posSource[1];
             double deltaZ = posTarget[2] - posSource[2];
             double length = sqrt(deltaX*deltaX + deltaY*deltaY + deltaZ*deltaZ);
-            double xRotation = atan(deltaY/deltaZ);
-            double yRotation = atan(deltaX/deltaZ);
+
+            double xRotation = 45.0;
+            double yRotation = 90.0;
+            double zRotation = 45.0;
+
+//            double xRotation = atan2(deltaY,deltaZ)*180/pi;
+//            double yRotation = atan2(deltaX,deltaZ)*180/pi;
+//            double zRotation = atan2(deltaY,deltaX)*180/pi;
+
+//            std::cout << deltaX << "\t" << deltaY << "\t" << deltaZ << std::endl;
+//            std::cout << xRotation << "\t" << yRotation << "\t" <<zRotation << std::endl;
 
             GraphicalEdge* gEdge = new GraphicalEdge();
             graphicalObjects.push_back(gEdge);
             gEdge->setPosition(posSource);
-            gEdge->setDimension(0.5,length);
-            gEdge->setOrientation(xRotation,yRotation);
+            gEdge->setDimension(0.2,length);
+            gEdge->setOrientation(xRotation,yRotation,zRotation);
             gEdge->create();
         }
     }

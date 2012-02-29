@@ -20,15 +20,18 @@ void GraphicalEdge::create()
             gluQuadricNormals(cylinder,GLU_SMOOTH);
             gluCylinder(cylinder,radius,radius,length,32,1);
         glEndList();
+        // Delete the pointer
+        gluDeleteQuadric(cylinder);
     }
 }
 
 void GraphicalEdge::draw()
 {
     glPushMatrix();
-        glTranslated(0.0,0.0,0.0);
+        glTranslated(pos[0],pos[1],pos[2]);
         glRotated(xRot,1.0,0.0,0.0);
         glRotated(yRot,0.0,1.0,0.0);
+        glRotated(zRot,0.0,0.0,1.0);
         glCallList(mListIndex);
     glPopMatrix();
 }
@@ -39,10 +42,11 @@ void GraphicalEdge::setDimension(double inRadius, double inLength)
     length = inLength;
 }
 
-void GraphicalEdge::setOrientation(double in_xRotation, double in_yRotation)
+void GraphicalEdge::setOrientation(double __xRotation, double __yRotation, double __zRotation)
 {
-    xRot = in_xRotation;
-    yRot = in_yRotation;
+    xRot = __xRotation;
+    yRot = __yRotation;
+    zRot = __zRotation;
 }
 
 void GraphicalEdge::getDimension(double& inRadius, double& inLength)

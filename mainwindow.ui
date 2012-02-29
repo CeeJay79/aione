@@ -20,10 +20,10 @@
    <widget class="Simulator" name="widget" native="true">
     <property name="geometry">
      <rect>
-      <x>60</x>
+      <x>20</x>
       <y>20</y>
-      <width>481</width>
-      <height>361</height>
+      <width>711</width>
+      <height>471</height>
      </rect>
     </property>
     <property name="focusPolicy">
