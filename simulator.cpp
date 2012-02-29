@@ -99,10 +99,11 @@ void Simulator::initializeNetwork(std::map<int, MechanicalNode*>* inMap)
 
 void Simulator::createNetwork()
 {
-    // Create Graphical Nodes
+    // Create Graphical Nodes and Nodes
     std::map <int,MechanicalNode*>::iterator it;
     for (it = network->begin(); it != network->end(); it++)
     {
+        // Create Graphical Nodes
         GraphicalNode* gNode = new GraphicalNode();
         graphicalObjects.push_back(gNode);
         double* posSource = ((*it).second)->getPos();
@@ -110,7 +111,7 @@ void Simulator::createNetwork()
         gNode->setPosition(posSource);
         gNode->create();
 
-
+        // Create Graphical Edges
         std::vector <Edge*>* successors = ((*it).second)->getSuccessors();
         for (int i=0; i< successors->size(); i++)
         {
@@ -119,25 +120,18 @@ void Simulator::createNetwork()
             double deltaX = posTarget[0] - posSource[0];
             double deltaY = posTarget[1] - posSource[1];
             double deltaZ = posTarget[2] - posSource[2];
-
             double length = sqrt(deltaX*deltaX + deltaY*deltaY + deltaZ*deltaZ);
+            double xRotation = atan(deltaY/deltaZ);
+            double yRotation = atan(deltaX/deltaZ);
 
-//            GraphicalEdge* gEdge = new GraphicalEdge();
-//            graphicalObjects.push_back(gEdge);
-//            gEdge->setDimension(0.5,5);
-//            gEdge->create();
+            GraphicalEdge* gEdge = new GraphicalEdge();
+            graphicalObjects.push_back(gEdge);
+            gEdge->setPosition(posSource);
+            gEdge->setDimension(0.5,length);
+            gEdge->setOrientation(xRotation,yRotation);
+            gEdge->create();
         }
-
     }
-
-    // Create Graphical Edges
-    //    for (int i=0; i<j; i++)
-    //    {
-    //        GraphicalEdge* gEdge = new GraphicalEdge();
-    //        graphicalObjects.push_back(gEdge);
-    //        gEdge->setDimension(0.5,5);
-    //        gEdge->create();
-    //    }
 }
 
 void Simulator::keyPressEvent(QKeyEvent* event)

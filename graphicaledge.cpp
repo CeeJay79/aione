@@ -26,8 +26,9 @@ void GraphicalEdge::create()
 void GraphicalEdge::draw()
 {
     glPushMatrix();
-//        glTranslated(0.0,0.0,0.0);
-//        glRotated(0.0,0.0,0.0,0.0);
+        glTranslated(0.0,0.0,0.0);
+        glRotated(xRot,1.0,0.0,0.0);
+        glRotated(yRot,0.0,1.0,0.0);
         glCallList(mListIndex);
     glPopMatrix();
 }
@@ -38,8 +39,21 @@ void GraphicalEdge::setDimension(double inRadius, double inLength)
     length = inLength;
 }
 
+void GraphicalEdge::setOrientation(double in_xRotation, double in_yRotation)
+{
+    xRot = in_xRotation;
+    yRot = in_yRotation;
+}
+
 void GraphicalEdge::getDimension(double& inRadius, double& inLength)
 {
     inRadius = radius;
     inLength = length;
+}
+
+void GraphicalEdge::setPosition(double* posPtr)
+{
+    pos[0] = posPtr[0];
+    pos[1] = posPtr[1];
+    pos[2] = posPtr[2];
 }

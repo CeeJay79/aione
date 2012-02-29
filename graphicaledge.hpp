@@ -12,12 +12,16 @@ public:
     void create();
     void draw();
 
+    void setPosition(double*);
     void setDimension(double,double);
+    void setOrientation(double,double);
     void getDimension(double&,double&);
 
 private:
     double radius;
     double length;
+    double xRot,yRot;
+    double pos[3];
 
 };
 
