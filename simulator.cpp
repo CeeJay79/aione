@@ -124,16 +124,21 @@ void Simulator::createNetwork()
             double deltaZ = posTarget[2] - posSource[2];
             double length = sqrt(deltaX*deltaX + deltaY*deltaY + deltaZ*deltaZ);
 
-            double xRotation = 45.0;
-            double yRotation = 90.0;
-            double zRotation = 45.0;
+            double xRotation = 0.0;
+            double yRotation = 0.0;
+            double zRotation = 0.0;
+
+            double phi = asin(-deltaY/length);
+            double theta = atan(deltaX/length/cos(phi));
+            xRotation = phi * 180/pi;
+            yRotation = theta * 180/pi;
 
 //            double xRotation = atan2(deltaY,deltaZ)*180/pi;
 //            double yRotation = atan2(deltaX,deltaZ)*180/pi;
 //            double zRotation = atan2(deltaY,deltaX)*180/pi;
 
 //            std::cout << deltaX << "\t" << deltaY << "\t" << deltaZ << std::endl;
-//            std::cout << xRotation << "\t" << yRotation << "\t" <<zRotation << std::endl;
+            std::cout << xRotation << "\t" << yRotation << "\t" <<zRotation << std::endl;
 
             GraphicalEdge* gEdge = new GraphicalEdge();
             graphicalObjects.push_back(gEdge);

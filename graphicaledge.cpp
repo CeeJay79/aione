@@ -31,7 +31,7 @@ void GraphicalEdge::draw()
         glTranslated(pos[0],pos[1],pos[2]);
         glRotated(xRot,1.0,0.0,0.0);
         glRotated(yRot,0.0,1.0,0.0);
-        glRotated(zRot,0.0,0.0,1.0);
+//        glRotated(zRot,0.0,0.0,1.0);
         glCallList(mListIndex);
     glPopMatrix();
 }
