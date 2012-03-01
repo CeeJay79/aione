@@ -5,6 +5,7 @@ double pi = atan(1.0)*4.0;
 Simulator::Simulator(QWidget *parent) :
     QGLWidget(parent)
 {
+    zHomeView = -30;
     timerID = 0;
 //    timerID = startTimer(10);
 }
@@ -33,7 +34,7 @@ void Simulator::resizeGL(int width, int height)
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
-    glTranslated(0.0,0.0,-20.0);
+    glTranslated(0.0,0.0,zHomeView);
 }
 
 void Simulator::initializeGL()
@@ -87,9 +88,15 @@ void Simulator::paintGL()
     glFlush();
 }
 
-// Observer related stuff
 void Simulator::notify()
 {
+}
+
+void Simulator::notify(int __ID)
+{
+    double exploredColor[3] = {1.0,1.0,0.0};
+    nodeMap[__ID]->setClr(exploredColor);
+
     updateGL();
 }
 
@@ -108,6 +115,7 @@ void Simulator::createNetwork()
         // Create Graphical Nodes
         GraphicalNode* gNode = new GraphicalNode();
         graphicalObjects.push_back(gNode);
+        nodeMap.insert(std::pair<int,GraphicalNode*>((*it).first,gNode));
         double* posSource = ((*it).second)->getPos();
         gNode->setRadius(1);
         gNode->setPosition(posSource);
@@ -124,28 +132,35 @@ void Simulator::createNetwork()
             double deltaZ = posTarget[2] - posSource[2];
             double length = sqrt(deltaX*deltaX + deltaY*deltaY + deltaZ*deltaZ);
 
-            double xRotation = 0.0;
-            double yRotation = 0.0;
-            double zRotation = 0.0;
+            double xRotation;
+            double yRotation;
+            double zRotation;
+
+//            double phi = asin(-deltaY/length);
+//            double theta = atan(deltaX/length/cos(phi));
+
+//            double theta = asin(-deltaX/length);
+//            double phi = asin(deltaY/length/cos(theta));
 
             double phi = asin(-deltaY/length);
             double theta = atan(deltaX/length/cos(phi));
+
             xRotation = phi * 180/pi;
             yRotation = theta * 180/pi;
 
-//            double xRotation = atan2(deltaY,deltaZ)*180/pi;
-//            double yRotation = atan2(deltaX,deltaZ)*180/pi;
-//            double zRotation = atan2(deltaY,deltaX)*180/pi;
+//            xRotation = atan2(deltaY,deltaZ)*180/pi;
+//            yRotation = atan2(deltaX,deltaZ)*180/pi;
+//            zRotation = atan2(deltaY,deltaX)*180/pi;
 
 //            std::cout << deltaX << "\t" << deltaY << "\t" << deltaZ << std::endl;
-            std::cout << xRotation << "\t" << yRotation << "\t" <<zRotation << std::endl;
+//            std::cout << xRotation << "\t" << yRotation << "\t" <<zRotation << std::endl;
 
             GraphicalEdge* gEdge = new GraphicalEdge();
             graphicalObjects.push_back(gEdge);
             gEdge->setPosition(posSource);
             gEdge->setDimension(0.2,length);
             gEdge->setOrientation(xRotation,yRotation,zRotation);
-            gEdge->create();
+//            gEdge->create();
         }
     }
 }
@@ -252,7 +267,7 @@ int Simulator::getZRotation()
 void Simulator::homeView()
 {
     glLoadIdentity();
-    glTranslated(0.0,0.0,-20.0);
+    glTranslated(0.0,0.0,zHomeView);
     xRot = 0;
     yRot = 0;
     zRot = 0;

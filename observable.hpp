@@ -12,6 +12,7 @@ public:
     void registerObserver(Observer* o);
     void unresgisterObserver(Observer* o);
     void notifyObservers();
+    void notifyObservers(int);
 
     private:
     std::list<Observer*> observers;

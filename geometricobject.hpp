@@ -21,9 +21,11 @@ public:
     virtual void draw() = 0;
 
     int getListIndex();
+    void setClr(double*);
 
 protected:
     int mListIndex;
+    double clr[3];
 
 private:
     static int numberOfGeometricObjects;

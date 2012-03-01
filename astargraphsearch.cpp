@@ -29,6 +29,11 @@ Node* AStarGraphSearch::runSearch()
         currentNode = popFrontier();
         currentNode->setExplored(1);
 
+        notifyObservers(currentNode->getNodeID());
+//        sleep(1);
+//        system("read -p \"Press a key to continue...\" -n 1 -s");
+
+
         goalFound = goalTest(currentNode);
         if (goalFound)
         {

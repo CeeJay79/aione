@@ -25,6 +25,7 @@ public:
 
     void initializeNetwork(std::map <int,MechanicalNode*>*);
     void notify();
+    void notify(int);
 
 private:
 
@@ -54,10 +55,13 @@ private:
     int yRot;
     int zRot;
     QPoint lastPos;
+    double zHomeView;
 
     std::vector <GeometricObject*> graphicalObjects;
     int timerID;
 
+    std::map <int,GraphicalNode*> nodeMap;
+    std::map <int,GraphicalEdge*> edgeMap;
     std::map <int,MechanicalNode*>* network;
 
 signals:

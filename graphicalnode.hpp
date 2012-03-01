@@ -25,6 +25,7 @@ protected:
 private:
     double radius;
     double pos[3];
+    double clr[3];
 };
 
 #endif // GRAPHICALNODE_HPP

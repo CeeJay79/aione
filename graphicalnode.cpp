@@ -2,6 +2,9 @@
 
 GraphicalNode::GraphicalNode()
 {
+    clr[0] = 1.0;
+    clr[1] = 0.0;
+    clr[2] = 0.0;
 }
 
 void GraphicalNode::create()
@@ -12,7 +15,6 @@ void GraphicalNode::create()
     if (mListIndex != 0)
     {
         glNewList(mListIndex,GL_COMPILE);
-            glColor3f(1.0,0.0,0.0);
             sphere = gluNewQuadric();
             gluQuadricDrawStyle(sphere,GLU_TRUE);
             gluQuadricNormals(sphere,GLU_SMOOTH);
@@ -25,8 +27,8 @@ void GraphicalNode::create()
 
 void GraphicalNode::draw()
 {
-
     glPushMatrix();
+        glColor3dv(clr);
         glTranslated(pos[0],pos[1],pos[2]);
 //        glRotated(0.0,0.0,0.0,0.0);
         glCallList(mListIndex);

@@ -17,17 +17,20 @@ void Observable::unresgisterObserver(Observer* o){
 
 }
 
-
-
-void Observable::notifyObservers(){
-
+void Observable::notifyObservers(int __in)
+{
     std::list<Observer*>::iterator it;
     for (it = observers.begin(); it != observers.end(); it++)
     {
-
-        (*it)->notify();
-
+        (*it)->notify(__in);
     }
+}
 
-
+void Observable::notifyObservers()
+{
+    std::list<Observer*>::iterator it;
+    for (it = observers.begin(); it != observers.end(); it++)
+    {
+        (*it)->notify();
+    }
 }
