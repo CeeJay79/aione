@@ -7,7 +7,7 @@ Simulator::Simulator(QWidget *parent) :
 {
     zHomeView = -30;
     timerID = 0;
-//    timerID = startTimer(10);
+    timerID = startTimer(5);
 }
 
 Simulator::~Simulator()
@@ -94,10 +94,17 @@ void Simulator::notify()
 
 void Simulator::notify(int __ID)
 {
-    double exploredColor[3] = {1.0,1.0,0.0};
-    nodeMap[__ID]->setClr(exploredColor);
+    double exploredColor[3];
+    exploredColor[0] = 1.0;
+    exploredColor[1] = 1.0;
+    exploredColor[2] = 0.0;
+    nodeMap[__ID]->setClr(1.0,1.0,1.0);
 
-    updateGL();
+//    sleep(1);
+
+
+    if (!timerID)
+        updateGL();
 }
 
 void Simulator::initializeNetwork(std::map<int, MechanicalNode*>* inMap)
@@ -136,21 +143,11 @@ void Simulator::createNetwork()
             double yRotation;
             double zRotation;
 
-//            double phi = asin(-deltaY/length);
-//            double theta = atan(deltaX/length/cos(phi));
-
-//            double theta = asin(-deltaX/length);
-//            double phi = asin(deltaY/length/cos(theta));
-
-            double phi = asin(-deltaY/length);
-            double theta = atan(deltaX/length/cos(phi));
+            double theta = asin(-deltaX/length);
+            double phi = asin(deltaY/length/cos(theta));
 
             xRotation = phi * 180/pi;
             yRotation = theta * 180/pi;
-
-//            xRotation = atan2(deltaY,deltaZ)*180/pi;
-//            yRotation = atan2(deltaX,deltaZ)*180/pi;
-//            zRotation = atan2(deltaY,deltaX)*180/pi;
 
 //            std::cout << deltaX << "\t" << deltaY << "\t" << deltaZ << std::endl;
 //            std::cout << xRotation << "\t" << yRotation << "\t" <<zRotation << std::endl;
@@ -160,7 +157,7 @@ void Simulator::createNetwork()
             gEdge->setPosition(posSource);
             gEdge->setDimension(0.2,length);
             gEdge->setOrientation(xRotation,yRotation,zRotation);
-//            gEdge->create();
+            gEdge->create();
         }
     }
 }
