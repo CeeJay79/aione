@@ -5,9 +5,10 @@ double pi = atan(1.0)*4.0;
 Simulator::Simulator(QWidget *parent) :
     QGLWidget(parent)
 {
+    xRot = yRot = zRot = 0;
     zHomeView = -30;
     timerID = 0;
-    timerID = startTimer(5);
+    timerID = startTimer(20);
 }
 
 Simulator::~Simulator()
@@ -18,8 +19,6 @@ Simulator::~Simulator()
     }
     // Do i need to popback to avoid memory leaks !!!
 }
-
-//void Simulator::setNetwork()
 
 void Simulator::resizeGL(int width, int height)
 {
@@ -96,12 +95,9 @@ void Simulator::notify(int __ID)
 {
     double exploredColor[3];
     exploredColor[0] = 1.0;
-    exploredColor[1] = 1.0;
-    exploredColor[2] = 0.0;
-    nodeMap[__ID]->setClr(1.0,1.0,1.0);
-
-//    sleep(1);
-
+    exploredColor[1] = 0.0;
+    exploredColor[2] = 1.0;
+    nodeMap[__ID]->setClr(exploredColor);
 
     if (!timerID)
         updateGL();
@@ -133,7 +129,6 @@ void Simulator::createNetwork()
         for (int i=0; i< successors->size(); i++)
         {
             double* posTarget = ((MechanicalNode*)(successors->at(i))->getTarget())->getPos();
-
             double deltaX = posTarget[0] - posSource[0];
             double deltaY = posTarget[1] - posSource[1];
             double deltaZ = posTarget[2] - posSource[2];
@@ -143,8 +138,10 @@ void Simulator::createNetwork()
             double yRotation;
             double zRotation;
 
-            double theta = asin(-deltaX/length);
-            double phi = asin(deltaY/length/cos(theta));
+            double theta = asin(deltaX/length);
+            double phi = asin(-deltaY/length/cos(theta));
+            if (deltaZ < 0)
+                phi = pi - phi;
 
             xRotation = phi * 180/pi;
             yRotation = theta * 180/pi;

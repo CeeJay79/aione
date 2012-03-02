@@ -21,7 +21,7 @@ public:
     virtual void draw() = 0;
 
     int getListIndex();
-    void setClr(double,double,double);
+    void setClr(double*);
 
 protected:
     int mListIndex;

@@ -15,6 +15,7 @@
 #include "edge.hpp"
 
 #include <iostream>
+#include <cstdio>
 
 class Simulator : public QGLWidget, public Observer
 {
