@@ -6,7 +6,7 @@ Simulator::Simulator(QWidget *parent) :
     QGLWidget(parent)
 {
     xRot = yRot = zRot = 0;
-    zHomeView = -30;
+    zHomeView = -40;
     timerID = 0;
     timerID = startTimer(20);
 }
@@ -91,13 +91,21 @@ void Simulator::notify()
 {
 }
 
-void Simulator::notify(int __ID)
+void Simulator::notify(int __ID,NotificationType updateType)
 {
     double exploredColor[3];
     exploredColor[0] = 1.0;
     exploredColor[1] = 0.0;
     exploredColor[2] = 1.0;
-    nodeMap[__ID]->setClr(exploredColor);
+
+    if (updateType == NODE_UPDATE)
+    {
+        nodeMap[__ID]->setClr(exploredColor);
+    }
+    else if (updateType == EDGE_UPDATE)
+    {
+        edgeMap[__ID]->setClr(exploredColor);
+    }
 
     if (!timerID)
         updateGL();
@@ -111,6 +119,9 @@ void Simulator::initializeNetwork(std::map<int, MechanicalNode*>* inMap)
 
 void Simulator::createNetwork()
 {
+    // Declare Variables
+    std::vector <Node*> nodesWithEdges;
+
     // Create Graphical Nodes and Nodes
     std::map <int,MechanicalNode*>::iterator it;
     for (it = network->begin(); it != network->end(); it++)
@@ -126,36 +137,49 @@ void Simulator::createNetwork()
 
         // Create Graphical Edges
         std::vector <Edge*>* successors = ((*it).second)->getSuccessors();
-        for (int i=0; i< successors->size(); i++)
+        for (unsigned int i=0; i<successors->size(); i++)
         {
-            double* posTarget = ((MechanicalNode*)(successors->at(i))->getTarget())->getPos();
+            Node* targetNode = (successors->at(i))->getTarget();
+
+            bool skip = 0;
+            for (unsigned int j=0; j<nodesWithEdges.size(); j++)
+            {
+                if (nodesWithEdges[j] == targetNode)
+                {
+                    skip = 1;
+                    break;
+                }
+            }
+            if (skip)
+                continue;
+
+            double* posTarget = ((MechanicalNode*)(targetNode))->getPos();
             double deltaX = posTarget[0] - posSource[0];
             double deltaY = posTarget[1] - posSource[1];
             double deltaZ = posTarget[2] - posSource[2];
             double length = sqrt(deltaX*deltaX + deltaY*deltaY + deltaZ*deltaZ);
-
-            double xRotation;
-            double yRotation;
-            double zRotation;
 
             double theta = asin(deltaX/length);
             double phi = asin(-deltaY/length/cos(theta));
             if (deltaZ < 0)
                 phi = pi - phi;
 
-            xRotation = phi * 180/pi;
-            yRotation = theta * 180/pi;
-
-//            std::cout << deltaX << "\t" << deltaY << "\t" << deltaZ << std::endl;
-//            std::cout << xRotation << "\t" << yRotation << "\t" <<zRotation << std::endl;
+            double xRotation = phi * 180/pi;
+            double yRotation = theta * 180/pi;
+            double zRotation = 0;
+            double rotations[3] = {xRotation,yRotation,zRotation};
 
             GraphicalEdge* gEdge = new GraphicalEdge();
             graphicalObjects.push_back(gEdge);
+            edgeMap.insert(std::pair<int,GraphicalEdge*>((successors->at(i))->getEdgeID(),gEdge));
+//            edgeMap.push_back(gEdge);
+
             gEdge->setPosition(posSource);
             gEdge->setDimension(0.2,length);
-            gEdge->setOrientation(xRotation,yRotation,zRotation);
+            gEdge->setOrientation(rotations);
             gEdge->create();
         }
+        nodesWithEdges.push_back((*it).second);
     }
 }
 

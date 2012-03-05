@@ -17,12 +17,12 @@ void Observable::unresgisterObserver(Observer* o){
 
 }
 
-void Observable::notifyObservers(int __in)
+void Observable::notifyObservers(int __in,NotificationType nType)
 {
     std::list<Observer*>::iterator it;
     for (it = observers.begin(); it != observers.end(); it++)
     {
-        (*it)->notify(__in);
+        (*it)->notify(__in,nType);
     }
 }
 

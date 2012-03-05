@@ -29,9 +29,11 @@ Node* AStarGraphSearch::runSearch()
         currentNode = popFrontier();
         currentNode->setExplored(1);
 
-        notifyObservers(currentNode->getNodeID());
+        // Notification for Simulator
+        notifyObservers(currentNode->getNodeID(),NODE_UPDATE);
 //        sleep(1);
 //        system("read -p \"Press a key to continue...\" -n 1 -s");
+        // -----------------------------------------------------------
 
 
         goalFound = goalTest(currentNode);
@@ -40,7 +42,7 @@ Node* AStarGraphSearch::runSearch()
             break;
         }
 
-        addNodeToExploredSet(currentNode,0/*This is not important for explored set*/);
+        addNodeToExploredSet(currentNode,0/*The 0 is not important for explored set*/);
 
         feeder->getSuccessors(currentNode,&edgeSuccessors);
         int numberOfSuccessors = edgeSuccessors.size();
@@ -55,6 +57,15 @@ Node* AStarGraphSearch::runSearch()
 
             g = currentNode->getCurrentCost() + edgeSuccessors[i]->getCost();
             f = heuristic->evaluateHeuristic(g,nodeSuccessors[i]);
+
+
+
+            // Notification for Simulator
+            notifyObservers(edgeSuccessors[i]->getEdgeID(),EDGE_UPDATE);
+            // -----------------------------------------------------------
+
+
+
 
             if (isNodeInExploredSet(nodeSuccessors[i]) == 0)
             {

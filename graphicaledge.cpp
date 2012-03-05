@@ -42,11 +42,11 @@ void GraphicalEdge::setDimension(double inRadius, double inLength)
     length = inLength;
 }
 
-void GraphicalEdge::setOrientation(double __xRotation, double __yRotation, double __zRotation)
+void GraphicalEdge::setOrientation(double* __rotations)
 {
-    xRot = __xRotation;
-    yRot = __yRotation;
-    zRot = __zRotation;
+    xRot = __rotations[0];
+    yRot = __rotations[1];
+    zRot = __rotations[2];
 }
 
 void GraphicalEdge::getDimension(double& inRadius, double& inLength)

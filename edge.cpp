@@ -28,3 +28,13 @@ void Edge::setCost(double cost_)
 {
     cost = cost_;
 }
+
+int Edge::getEdgeID()
+{
+    return edgeID;
+}
+
+void Edge::setEdgeID(int __edgeID)
+{
+    edgeID = __edgeID;
+}

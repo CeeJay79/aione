@@ -55,13 +55,6 @@ void Search::addNodeToFrontier(Node* inNode,double inCost)
         frontier.nodes.push_back(inNode);
         frontier.costs.push_back(inCost);
     }
-    /*
-    if (mostExpensive)
-    {
-        frontier.nodes.insert(posNode,inNode);
-        frontier.costs.insert(posCost,inCost);
-    }
-    */
 }
 
 void Search::addNodeToExploredSet(Node* inNode,double inCost)

@@ -94,6 +94,10 @@ public :
 
                 }
 
+
+                // Temporary Shit Remove Later
+                int edgeID = 0; // --------------------------------------
+
                 /* Looping over the edges */
                 for (cur_node;cur_node &&  strcmp(cur_node->name(),"edge") == 0; cur_node = cur_node->next_sibling()){
 
@@ -114,14 +118,20 @@ public :
 
                     /* Adds friend to friendlist */
                     Edge *edge1 = new Edge(sourceNode,targetNode);
-                    Edge *edge2 = new Edge(targetNode,sourceNode);
+//                    Edge *edge2 = new Edge(targetNode,sourceNode);
                     edge1->setCost(1);
-                    edge2->setCost(1);
+//                    edge2->setCost(1);
                     sourceNode->addSuccessor(edge1);
-                    targetNode->addSuccessor(edge2);
+//                    targetNode->addSuccessor(edge2);
 
+                    // Temporary Shit Remove Later
+                    edge1->setEdgeID(edgeID);// --------------------------------------
+                    edgeID++;// --------------------------------------
+//                    edge2->setEdgeID(edgeID);// --------------------------------------
+//                    edgeID++;// --------------------------------------
                 }
 
+                std::cout << edgeID << std::endl;
 
 
         std::cout << "XML import completed" << std::endl;

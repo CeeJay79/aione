@@ -12,10 +12,8 @@ class Feeder
 public:
     Feeder();
 
-
     virtual Node* getNode(int) = 0;
     virtual void  getSuccessors(Node*,std::vector <Edge*>*) = 0;
-
 
 private:
 };

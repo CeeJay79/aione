@@ -26,7 +26,7 @@ public:
 
     void initializeNetwork(std::map <int,MechanicalNode*>*);
     void notify();
-    void notify(int);
+    void notify(int,NotificationType);
 
 private:
 
@@ -64,6 +64,7 @@ private:
     std::map <int,GraphicalNode*> nodeMap;
     std::map <int,GraphicalEdge*> edgeMap;
     std::map <int,MechanicalNode*>* network;
+//    std::vector <GraphicalEdge*> edgeMap;
 
 signals:
 public slots:

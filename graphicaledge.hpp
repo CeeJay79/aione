@@ -13,8 +13,8 @@ public:
     void draw();
 
     void setPosition(double*);
+    void setOrientation(double*);
     void setDimension(double,double);
-    void setOrientation(double,double,double);
     void getDimension(double&,double&);
 
 private:

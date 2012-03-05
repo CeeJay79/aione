@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
     // Declare Variables
     Heuristic heur;
 //    OfflineFeeder<SocialNode> feeder("graph1.xml");
-    OfflineFeeder<MechanicalNode> feeder("mechgraph.xml");
+    OfflineFeeder<MechanicalNode> feeder("mechgraph2.xml");
     AStarGraphSearch search(&feeder);
 
     // GUI Display variables
