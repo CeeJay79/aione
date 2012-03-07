@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 
     // Initialize Uninitialized Variables
     search.initInitNode(0);
-    search.initGoalNode(17);
+    search.initGoalNode(10);
     search.initHeuristic(&heur);
 
     // Run the algorithm
@@ -42,6 +42,9 @@ int main(int argc, char *argv[])
         std::cout << "No path from start to goal node exists" << std::endl;
     else
     {
+        #if GUI_DISPLAY == 1
+        simPtr->drawSolutionPath(solution);
+        #endif
         for (Node* i=solution; i!=NULL; i=i->parentNode)
         {
             std::cout << i->nodeID << " : " << i->getCurrentCost() <<  " : " << i->getHeuristicValue() << std::endl;
