@@ -14,7 +14,6 @@ void GraphicalEdge::create()
     if (mListIndex != 0)
     {
         glNewList(mListIndex,GL_COMPILE);
-            glColor3f(1.0,0.0,0.0);
             cylinder = gluNewQuadric();
             gluQuadricDrawStyle(cylinder,GLU_FILL);
             gluQuadricNormals(cylinder,GLU_SMOOTH);
@@ -28,6 +27,7 @@ void GraphicalEdge::create()
 void GraphicalEdge::draw()
 {
     glPushMatrix();
+        glColor3dv(clr);
         glTranslated(pos[0],pos[1],pos[2]);
         glRotated(xRot,1.0,0.0,0.0);
         glRotated(yRot,0.0,1.0,0.0);

@@ -2,9 +2,6 @@
 
 GraphicalNode::GraphicalNode()
 {
-    clr[0] = 1.0;
-    clr[1] = 0.0;
-    clr[2] = 0.0;
 }
 
 void GraphicalNode::create()

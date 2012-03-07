@@ -31,17 +31,22 @@ int main(int argc, char *argv[])
 
 
     // Initialize Uninitialized Variables
-    search.initInitNode(1);
-    search.initGoalNode(10);
+    search.initInitNode(0);
+    search.initGoalNode(17);
     search.initHeuristic(&heur);
 
     // Run the algorithm
     Node* solution = search.runSearch();
 
-//    for (Node* i=solution; i!=NULL; i=i->parentNode)
-//    {
-//        std::cout << i->nodeID << " : " << i->getCurrentCost() <<  " : " << i->getHeuristicValue() << std::endl;
-//    }
+    if (solution == NULL)
+        std::cout << "No path from start to goal node exists" << std::endl;
+    else
+    {
+        for (Node* i=solution; i!=NULL; i=i->parentNode)
+        {
+            std::cout << i->nodeID << " : " << i->getCurrentCost() <<  " : " << i->getHeuristicValue() << std::endl;
+        }
+    }
 
 //    feeder.exportToXml("graphexport.xml");
     // Save result in file

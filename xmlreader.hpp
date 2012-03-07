@@ -131,16 +131,10 @@ public :
 //                    edgeID++;// --------------------------------------
                 }
 
-                std::cout << edgeID << std::endl;
-
-
         std::cout << "XML import completed" << std::endl;
 
 
         return mapping;
-
-
-
 
 
     }

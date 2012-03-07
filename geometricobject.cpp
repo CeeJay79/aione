@@ -4,6 +4,9 @@ int GeometricObject::numberOfGeometricObjects = 0;
 
 GeometricObject::GeometricObject()
 {
+    clr[0] = 1.0;
+    clr[1] = 0.0;
+    clr[2] = 0.0;
     numberOfGeometricObjects++;
 }
 
