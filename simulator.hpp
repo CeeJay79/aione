@@ -65,7 +65,6 @@ private:
     std::map <int,GraphicalNode*> nodeMap;
     std::map <int,GraphicalEdge*> edgeMap;
     std::map <int,MechanicalNode*>* network;
-//    std::vector <GraphicalEdge*> edgeMap;
 
 signals:
 public slots:

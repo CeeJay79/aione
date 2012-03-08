@@ -29,11 +29,15 @@ Node* AStarGraphSearch::runSearch()
         currentNode = popFrontier();
         currentNode->setExplored(1);
 
+
+#if GUI_DISPLAY ==1
         // Notification for Simulator
         notifyObservers(currentNode->getNodeID(),NODE_UPDATE);
 //        sleep(1);
 //        system("read -p \"Press a key to continue...\" -n 1 -s");
         // -----------------------------------------------------------
+#endif
+
 
 
         goalFound = goalTest(currentNode);
@@ -93,13 +97,10 @@ Node* AStarGraphSearch::runSearch()
         }
     }
 
-    if (frontier.nodes.size() == 0)
-        return NULL;
-    else
-    {
-
+    if (goalFound)
         return currentNode;
-    }
+    else
+        return NULL;
 }
 
 void AStarGraphSearch::sortPriorityQueue()

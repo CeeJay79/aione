@@ -17,6 +17,7 @@ int main(int argc, char *argv[])
     OfflineFeeder<MechanicalNode> feeder("mechgraph2.xml");
     AStarGraphSearch search(&feeder);
 
+
     // GUI Display variables
 #if GUI_DISPLAY == 1
     QApplication a(argc, argv);
@@ -32,8 +33,9 @@ int main(int argc, char *argv[])
 
     // Initialize Uninitialized Variables
     search.initInitNode(0);
-    search.initGoalNode(10);
+    search.initGoalNode(7);
     search.initHeuristic(&heur);
+
 
     // Run the algorithm
     Node* solution = search.runSearch();
@@ -42,18 +44,28 @@ int main(int argc, char *argv[])
         std::cout << "No path from start to goal node exists" << std::endl;
     else
     {
-        #if GUI_DISPLAY == 1
+#if GUI_DISPLAY == 1
         simPtr->drawSolutionPath(solution);
-        #endif
+#endif
         for (Node* i=solution; i!=NULL; i=i->parentNode)
         {
-            std::cout << i->nodeID << " : " << i->getCurrentCost() <<  " : " << i->getHeuristicValue() << std::endl;
+            std::cout << i->nodeID << " : " << i->getCurrentCost() <<  std::endl;
         }
     }
+
+
+
+
+
 
 //    feeder.exportToXml("graphexport.xml");
     // Save result in file
 //    feeder.exportToXml("graph2.xml");
+
+
+
+
+
 
 
     // Cleanup and preperation to exit program
