@@ -25,6 +25,7 @@ public:
     ~Simulator();
 
     void initializeNetwork(std::map <int,MechanicalNode*>*);
+    void drawSolutionPath(Node*);
     void notify();
     void notify(int,NotificationType);
 

@@ -87,6 +87,35 @@ void Simulator::paintGL()
     glFlush();
 }
 
+void::Simulator::drawSolutionPath(Node* solNode)
+{
+    double solutionColor[3] = {0.0,0.0,1.0};
+
+    while (true)
+    {
+        int nID = solNode->getNodeID();
+        nodeMap[nID]->setClr(solutionColor);
+
+        if (solNode->parentNode == NULL)
+            break;
+
+        std::vector <Edge*>* solSuccessors;
+        solSuccessors = (solNode->parentNode)->getSuccessors();
+
+        std::vector <Edge*>::iterator it;
+        for(it = solSuccessors->begin(); it != solSuccessors->end(); it++)
+        {
+            if (solNode == (*it)->getTarget())
+            {
+                int eID = (*it)->getEdgeID();
+                edgeMap[eID]->setClr(solutionColor);
+                solNode = (*it)->getSource();
+                break;
+            }
+        }
+    }
+}
+
 void Simulator::notify()
 {
 }
@@ -111,7 +140,7 @@ void Simulator::notify(int __ID,NotificationType updateType)
         updateGL();
 }
 
-void Simulator::initializeNetwork(std::map<int, MechanicalNode*>* inMap)
+void Simulator::initializeNetwork(std::map<int,MechanicalNode*>* inMap)
 {
     network = inMap;
     createNetwork();
