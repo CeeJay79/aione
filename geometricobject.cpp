@@ -31,3 +31,10 @@ void GeometricObject::setClr(double* __clr)
     clr[1] = __clr[1];
     clr[2] = __clr[2];
 }
+
+void GeometricObject::setPosition(double* __pos)
+{
+    pos[0] = __pos[0];
+    pos[1] = __pos[1];
+    pos[2] = __pos[2];
+}

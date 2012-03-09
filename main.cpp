@@ -32,8 +32,8 @@ int main(int argc, char *argv[])
 
 
     // Initialize Uninitialized Variables
-    search.initInitNode(0);
-    search.initGoalNode(7);
+    search.initInitNode(12);
+    search.initGoalNode(16);
     search.initHeuristic(&heur);
 
 

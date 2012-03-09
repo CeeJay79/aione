@@ -21,7 +21,6 @@ private:
     double radius;
     double length;
     double xRot,yRot,zRot;
-    double pos[3];
 
 };
 

@@ -22,10 +22,12 @@ public:
 
     int getListIndex();
     void setClr(double*);
+    void setPosition(double*);
 
 protected:
     int mListIndex;
     double clr[3];
+    double pos[3];
 
 private:
     static int numberOfGeometricObjects;

@@ -37,13 +37,6 @@ void GraphicalNode::setRadius(double inRadius)
     radius = inRadius;
 }
 
-void GraphicalNode::setPosition(double inPos[])
-{
-    pos[0] = inPos[0];
-    pos[1] = inPos[1];
-    pos[2] = inPos[2];
-}
-
 double GraphicalNode::getRadius()
 {
       return radius;
